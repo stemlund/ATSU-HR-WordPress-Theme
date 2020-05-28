@@ -146,6 +146,16 @@ function atsu_hr_scripts() {
 	wp_enqueue_style( 'atsu-hr-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'atsu-hr-style', 'rtl', 'replace' );
 
+	wp_enqueue_style( 'adobe-fonts', '//use.typekit.net/jde4nea.css');
+	wp_enqueue_style( 'google-material-icons', '//fonts.googleapis.com/icon?family=Material+Icons');
+
+	if ( is_page_template( 'page-home.php' ) ) {
+		wp_enqueue_script( 'cycle', get_template_directory_uri() . '/js/cycle/cycle.js', array('jquery'), null, true );
+		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js');
+	}
+
+	wp_enqueue_script( 'atsu-hr-script', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true  );
+
 	wp_enqueue_script( 'atsu-hr-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'atsu-hr-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
