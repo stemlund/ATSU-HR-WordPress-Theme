@@ -26,11 +26,11 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-		<img src="#" alt="">
+		<img src="<?php get_stylesheet_uri(); ?>/img/atsu-hr-logo.svg" alt="Human Resources at A.T. Still University">
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'atsu-hr' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu <i class="material-icons">menu</i></button>
 			<?php
 			wp_nav_menu(
 				array(

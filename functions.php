@@ -1,4 +1,22 @@
 <?php
+
+/*Require login to view the website*/
+function atsu_hr_login_required() {
+	/* If users is not logged in and they aren't on the login page (page id of 7) */
+	if ( !is_user_logged_in() && !is_page(7) ) {
+		/* Then redirect to the login page
+		May need to switch back to wp_redirect if needing to use an external SAML URL */
+		wp_safe_redirect( get_permalink( 7 ) );
+		exit;
+	}
+
+	/* After user logs in, it will send them back to the login page, but this code sends them back to the homepage after logging */
+	if ( is_user_logged_in() && is_page(7) ) {
+		wp_safe_redirect( home_url() );
+	}
+}
+add_action( 'template_redirect', 'atsu_hr_login_required' );
+
 /**
  * atsu-hr functions and definitions
  *
@@ -11,7 +29,6 @@ if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
 }
-
 if ( ! function_exists( 'atsu_hr_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -151,7 +168,7 @@ function atsu_hr_scripts() {
 
 	if ( is_page_template( 'page-home.php' ) ) {
 		wp_enqueue_script( 'cycle', get_template_directory_uri() . '/js/cycle/cycle.js', array('jquery'), null, true );
-		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js');
+		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js', null, true);
 	}
 
 	wp_enqueue_script( 'atsu-hr-script', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true  );
@@ -191,5 +208,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+
+
 }
 
