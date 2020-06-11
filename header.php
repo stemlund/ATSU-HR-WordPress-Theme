@@ -26,7 +26,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-		<img src="<?php get_stylesheet_uri(); ?>/img/atsu-hr-logo.svg" alt="Human Resources at A.T. Still University">
+		<img src="<?php echo get_template_directory_uri(); ?>/img/atsu-hr-logo.svg" alt="Human Resources at A.T. Still University">
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">

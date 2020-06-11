@@ -24,7 +24,7 @@ get_header();
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="entry-content">
-				<div class="slider-wrapper" style="background: url('<?php get_stylesheet_uri(); ?>/img/ipe-building-bg.jpg);">
+				<div class="slider-wrapper" style="background: url('<?php echo get_template_directory_uri(); ?>/img/ipe-building-bg.jpg);">
 
 					<a href="#" class="slider-button">Now Trending <i class="material-icons">chevron_right</i></a>
 
@@ -77,7 +77,7 @@ get_header();
 						<a href="#">See all forms <i class="material-icons">chevron_right</i></a>
 					</div>
 					<div class="home-col">
-						<img src="<?php get_stylesheet_uri(); ?>/img/treadmills.jpg" alt="">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/treadmills.jpg" alt="">
 					</div>
 					<div class="home-col">
 						<h3>Employee Directory</h3>
@@ -85,6 +85,18 @@ get_header();
 							<p>Employee directory intro text. We would like to have an employee directory option. Employee directory intro text. We would like to have an employee directory option.</p>
 						</div>
 						<a href="#">See all forms <i class="material-icons">chevron_right</i></a>
+					</div>
+				</div>
+
+				<div class="home-administration-block">
+					<div class="home-admin-col-1">
+						<h3>ATSU Leadership</h3>
+						<p>We would like a box below with a focus on ATSU leadership (We are thinking President's Cabinet and Deans).  We would like a box below with a focus.</p>
+						<a href="#">ATSU Leadership <i class="material-icons">chevron_right</i></a>
+					</div>
+
+					<div class="home-admin-col-2">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt="">
 					</div>
 				</div>
 			</div><!--end entry-content-->
