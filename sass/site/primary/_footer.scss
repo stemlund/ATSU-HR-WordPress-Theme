@@ -1,0 +1,18 @@
+.site-footer {
+  display: grid;
+  grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+  grid-template-areas:
+    ". footer ."
+    ". copyrightpolicies .";
+
+  background-color: $color__dark-blue;
+  color: #fff;
+}
+
+.footer-cols {
+  grid-area: footer;
+}
+
+.footer-copyright-policies {
+  grid-area: copyrightpolicies;
+}

@@ -29,7 +29,7 @@
 		<img src="<?php echo get_template_directory_uri(); ?>/img/atsu-hr-logo.svg" alt="Human Resources at A.T. Still University">
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation">	
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu <i class="material-icons">menu</i></button>
 			<?php
 			wp_nav_menu(
@@ -38,6 +38,7 @@
 					'menu_id'        => 'primary-menu',
 				)
 			);
-			?>
+				?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+<div class="main-and-widgets-wrapper">

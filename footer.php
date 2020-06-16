@@ -10,7 +10,8 @@
  */
 
 ?>
-
+	</div><!-- .main-and-widget-wrapper -->
+</div><!-- #page -->
 	<footer id="colophon" class="site-footer">
 		<div class="footer-cols">
 			<div class="footer-col footer-col-logo">
@@ -65,7 +66,6 @@
 
 		</div>
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
