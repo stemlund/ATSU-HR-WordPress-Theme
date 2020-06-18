@@ -1,0 +1,96 @@
+body.home .main-and-widgets-wrapper {
+  display: block;
+}
+
+.slider-wrapper,
+.resources-grid-wrapper,
+.home-content-wrapper {
+  display: grid;
+  grid-template-columns: $size__outer-margins 1fr $size__outer-margins;
+}
+
+.slider-wrapper {
+  grid-template-areas: ". slider .";
+  min-height: 413px;
+  background-size: cover;
+}
+
+.slider-inner-wrapper {
+  grid-area: slider;
+  align-self: center;
+  background-color: #fff;
+  border-left: 10px solid $color__red;
+}
+
+.slider-inner-wrapper {
+  width: 39rem;
+}
+
+.cycle-slideshow {
+  width: 97%;
+}
+
+.slide {
+  width: 100%;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
+}
+
+.slider-button {
+  display: block;
+  padding: 5px 15px;
+  background-color: $color__light-blue;
+}
+
+.cycle-pager {
+  margin: -0.8rem 1.5rem 1.5rem 0;
+  line-height: 0.5em;
+  font-size: 2em;
+  float: right;
+  color: $color__gray;
+}
+
+.cycle-pager-active {
+  color: $color__dark-blue;
+}
+
+.resources-grid-wrapper {
+  grid-template-areas: ". resources .";
+  background-color: #f3f3f3;
+  border-top: 10px solid $color__light-blue;
+}
+
+.resources-grid-inner-wrapper {
+  grid-area: resources;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.resources-grid-item {
+  height: 230px;
+  background: #ececec;
+}
+
+.item-about-hr {
+  grid-column-start: 2;
+}
+
+.item-work-study {
+  grid-column-start: 4;
+}
+.home-content-wrapper {
+  grid-template-areas:
+    ". threecols ."
+    ". admin .";
+}
+
+.home-three-cols-wrapper {
+  grid-area: threecols;
+}
+
+.home-administration-block-wrapper {
+  grid-area: admin;
+}

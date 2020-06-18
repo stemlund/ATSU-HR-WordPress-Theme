@@ -851,6 +851,118 @@ a:hover, a:active {
   grid-area: sidebar;
 }
 
+body.home .main-and-widgets-wrapper {
+  display: block;
+}
+
+.slider-wrapper,
+.resources-grid-wrapper,
+.home-content-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+      grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+}
+
+.slider-wrapper {
+      grid-template-areas: ". slider .";
+  min-height: 413px;
+  background-size: cover;
+}
+
+.slider-inner-wrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: slider;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #fff;
+  border-left: 10px solid #f05253;
+}
+
+.slider-inner-wrapper {
+  width: 39rem;
+}
+
+.cycle-slideshow {
+  width: 97%;
+}
+
+.slide {
+  width: 100%;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
+}
+
+.slider-button {
+  display: block;
+  padding: 5px 15px;
+  background-color: #3687ba;
+}
+
+.cycle-pager {
+  margin: -0.8rem 1.5rem 1.5rem 0;
+  line-height: 0.5em;
+  font-size: 2em;
+  float: right;
+  color: #e4e4e4;
+}
+
+.cycle-pager-active {
+  color: #172940;
+}
+
+.resources-grid-wrapper {
+      grid-template-areas: ". resources .";
+  background-color: #f3f3f3;
+  border-top: 10px solid #3687ba;
+}
+
+.resources-grid-inner-wrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: resources;
+}
+
+.resources-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.resources-grid-item {
+  height: 230px;
+  background: #ececec;
+}
+
+.item-about-hr {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+.item-work-study {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+}
+
+.home-content-wrapper {
+      grid-template-areas: ". threecols ." ". admin .";
+}
+
+.home-three-cols-wrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: threecols;
+}
+
+.home-administration-block-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: admin;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
