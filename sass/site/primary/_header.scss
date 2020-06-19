@@ -1,20 +1,22 @@
-.site-header {
-  display: grid;
-  grid-template-columns: $size__outer-margins 387px auto;
-  grid-template-areas: ". site-branding site-nav";
-}
+@media screen and (min-width: 35rem) {
+  .site-header {
+    display: grid;
+    grid-template-columns: $size__outer-margins 387px auto;
+    grid-template-areas: ". site-branding site-nav";
+  }
 
-.site-branding,
-.main-navigation {
-  display: flex;
-}
+  .site-branding,
+  .main-navigation {
+    display: flex;
+  }
 
-.site-branding {
-  grid-area: site-branding;
-  min-height: 129px;
-}
+  .site-branding {
+    grid-area: site-branding;
+    min-height: 129px;
+  }
 
-.main-navigation {
-  grid-area: site-nav;
-  background-color: $color__dark-blue;
+  .main-navigation {
+    grid-area: site-nav;
+    background-color: $color__dark-blue;
+  }
 }

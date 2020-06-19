@@ -22,16 +22,18 @@
   margin: 0 0 1.5em;
 }
 
-.main-and-widgets-wrapper {
-  display: grid;
-  grid-template-columns: $size__outer-margins auto 396px $size__outer-margins;
-  grid-template-areas: ". main sidebar .";
-}
+@media screen and (min-width: 35rem) {
+  .main-and-widgets-wrapper {
+    display: grid;
+    grid-template-columns: $size__outer-margins auto 396px $size__outer-margins;
+    grid-template-areas: ". main sidebar .";
+  }
 
-.site-main {
-  grid-area: main;
-}
+  .site-main {
+    grid-area: main;
+  }
 
-.widget-area {
-  grid-area: sidebar;
+  .widget-area {
+    grid-area: sidebar;
+  }
 }

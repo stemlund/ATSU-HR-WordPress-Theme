@@ -9,7 +9,11 @@
     padding-left: 0;
 
     ul {
+      width: 15rem;
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
       float: left;
       position: absolute;
       top: 100%;
@@ -22,15 +26,17 @@
       }
 
       li {
+        display: block;
+
         &:hover > ul,
         &.focus > ul {
           display: block;
           left: auto;
         }
-      }
 
-      a {
-        width: 200px;
+        a {
+          color: #000;
+        }
       }
 
       :hover > a,
@@ -42,10 +48,18 @@
       }
     }
 
+    a {
+      color: #fff;
+    }
     li:hover > ul,
     li.focus > ul {
       left: auto;
     }
+  }
+
+  .sub-menu a {
+    color: #000;
+    width: inherit;
   }
 
   li {
@@ -53,6 +67,7 @@
 
     &:hover > a,
     &.focus > a {
+      background: $color__mid-blue;
     }
   }
 
@@ -81,11 +96,34 @@
 
   .menu-top-navigation-container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
   }
 
   .main-navigation ul {
     display: flex;
+    align-items: stretch;
+
+    li {
+      display: flex;
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 0 0.55rem;
+      }
+    }
+    li:first-of-type a {
+      padding: 0 0.55rem 0 1.25rem;
+    }
+
+    .sub-menu li:first-of-type a,
+    .sub-menu li a {
+      padding: 0.7rem 1rem;
+    }
+
+    .sub-menu li a:hover {
+      background-color: $color__gray;
+    }
   }
 }
 

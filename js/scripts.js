@@ -1,10 +1,5 @@
-var donateButton = document.querySelector('.header-donate-button');
-var heartIcon = document.querySelector('.header-call-outs .md-heart');
+var ItemWithSubMenu = document.querySelectorAll( '.menu-item-has-children > a' );
 
-donateButton.addEventListener('mouseover', function() {
-    heartIcon.textContent = 'favorite';
-});
-
-donateButton.addEventListener('mouseout', function() {
-    heartIcon.textContent = 'favorite_border';
-});
+ItemWithSubMenu.forEach( function( arrow ) {
+	arrow.insertAdjacentHTML( 'beforeend', '<i class="material-icons">expand_more</i>' );
+} );

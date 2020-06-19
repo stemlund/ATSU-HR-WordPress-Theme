@@ -36,6 +36,7 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					// 'link_after'	 => '<i class="material-icons">expand_more</i>'
 				)
 			);
 				?>
