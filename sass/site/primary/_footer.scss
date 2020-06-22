@@ -3,16 +3,64 @@
   grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
   grid-template-areas:
     ". footer ."
-    ". copyrightpolicies .";
+    "copyrightpolicies copyrightpolicies copyrightpolicies";
 
   background-color: $color__dark-blue;
   color: #fff;
+  margin: 3.5rem 0 0 0;
 }
 
 .footer-cols {
   grid-area: footer;
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
+  gap: 1rem;
+  padding: 3.5rem 0;
+}
+
+.footer-col {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  h4 {
+    margin: 0;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  address {
+    font-style: normal;
+    h5 {
+      margin: 0.7rem 0 0 0;
+    }
+    span {
+      display: block;
+    }
+  }
 }
 
 .footer-copyright-policies {
   grid-area: copyrightpolicies;
+  background-color: $color__mid-blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 3rem;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

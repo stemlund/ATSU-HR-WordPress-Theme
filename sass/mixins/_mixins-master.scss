@@ -1,11 +1,22 @@
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+  width: map-get($columns, $numberColumns) -
+    (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@mixin photo-with-gray-overlay($photo) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/wp-content/themes/atsu-hr/img/"+$photo+".jpg");
+}
+
+@mixin photo-with-gray-overlay-hover($color, $photo) {
+  background-image: linear-gradient(rgba($color, 0.7), rgba($color, 0.7)),
+    url("/wp-content/themes/atsu-hr/img/"+$photo+".jpg");
 }

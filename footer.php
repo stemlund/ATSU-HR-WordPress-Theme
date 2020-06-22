@@ -15,7 +15,7 @@
 	<footer id="colophon" class="site-footer">
 		<div class="footer-cols">
 			<div class="footer-col footer-col-logo">
-				<img src="atsu-logo.svg" alt="">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/atsu-logo.svg" alt="">
 			</div>
 			<div class="footer-col footer-col-contact">
 				<h4>Contact Human Resource</h4>

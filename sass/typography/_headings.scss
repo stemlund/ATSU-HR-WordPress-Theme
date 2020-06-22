@@ -4,5 +4,11 @@ h3,
 h4,
 h5,
 h6 {
-	clear: both;
+  clear: both;
+}
+
+.slide h2 {
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  margin: 0 0 10px 0;
 }

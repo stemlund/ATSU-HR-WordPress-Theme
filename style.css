@@ -366,7 +366,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: Montserrat, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -378,6 +378,12 @@ h4,
 h5,
 h6 {
   clear: both;
+}
+
+.slide h2 {
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  margin: 0 0 10px 0;
 }
 
 p {
@@ -594,6 +600,8 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: #4169e1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 a:hover, a:focus, a:active {
@@ -606,6 +614,40 @@ a:focus {
 
 a:hover, a:active {
   outline: 0;
+}
+
+a.primary-button {
+  background-color: #3687ba;
+  border-radius: 5px;
+  padding: 6px 30px 8px 25px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.primary-button:hover {
+  background-color: #172940;
+}
+
+a.hollow-button {
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid #172940;
+  text-decoration: none;
+  color: #172940;
+}
+
+a.hollow-button:hover {
+  background-color: #172940;
+  color: #fff;
+}
+
+a.cta-link {
+  color: #172940;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 1.5rem;
 }
 
 /*--------------------------------------------------------------
@@ -739,6 +781,21 @@ a:hover, a:active {
   .main-navigation ul .sub-menu li a:hover {
     background-color: #e4e4e4;
   }
+  .main-navigation ul li.menu-item-33:hover > ul,
+  .main-navigation ul li.menu-item-33:focus > ul {
+    left: -320px;
+  }
+  .main-navigation ul li.menu-item-33 ul {
+    width: 15rem;
+    display: block;
+    width: 52rem;
+    -webkit-columns: 3 auto;
+            columns: 3 auto;
+  }
+  .main-navigation ul li.menu-item-33 ul li {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 
 .site-main .comment-navigation, .site-main
@@ -863,7 +920,7 @@ a:hover, a:active {
 
 .post,
 .page {
-  margin: 0 0 1.5em;
+  margin: 0;
 }
 
 .updated:not(.published) {
@@ -873,7 +930,7 @@ a:hover, a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 0;
 }
 
 .page-links {
@@ -936,17 +993,30 @@ a:hover, a:active {
   }
   .slide {
     width: 100%;
-    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    padding: 2rem 1rem 1.4rem 2rem;
   }
-  .slider-button {
+  .slide p {
+    padding: 0;
+    margin: 0 0 1.5em 0;
+  }
+  a.slider-button {
     display: block;
-    padding: 5px 15px;
+    padding: 1px 15px 6px 15px;
     background-color: #3687ba;
+    color: #fff;
+    text-decoration: none;
+  }
+  a.slider-button:hover {
+    background-color: #172940;
+  }
+  .md-chevron {
+    position: relative;
+    top: 7px;
   }
   .cycle-pager {
     margin: -0.8rem 1.5rem 1.5rem 0;
     line-height: 0.5em;
-    font-size: 2em;
+    font-size: 4em;
     float: right;
     color: #e4e4e4;
   }
@@ -957,11 +1027,25 @@ a:hover, a:active {
         grid-template-areas: ". resources .";
     background-color: #f3f3f3;
     border-top: 10px solid #3687ba;
+    padding: 0 0 3.5rem 0;
   }
   .resources-grid-inner-wrapper {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: resources;
+  }
+  .resources-grid-inner-wrapper h2 {
+    color: #3687ba;
+    font-weight: 400;
+    font-size: 2.65rem;
+    line-height: 2.4rem;
+    margin: 1.2em 0 0.5em 0;
+  }
+  .resources-grid-inner-wrapper h2 span {
+    color: #172940;
+    display: block;
+    font-weight: 700;
+    font-size: 1.49rem;
   }
   .resources-grid {
     display: -ms-grid;
@@ -969,18 +1053,167 @@ a:hover, a:active {
     -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
   .resources-grid-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     height: 230px;
-    background: #ececec;
+    overflow: hidden;
   }
-  .item-about-hr {
+  .resources-grid-item:nth-of-type(1) {
+    border-bottom: 10px solid #f05253;
+  }
+  .resources-grid-item:nth-of-type(2) {
+    border-bottom: 10px solid #6360e5;
+  }
+  .resources-grid-item:nth-of-type(3) {
+    border-bottom: 10px solid #a3f5ef;
+  }
+  .resources-grid-item:nth-of-type(4) {
+    border-bottom: 10px solid #f1944e;
+  }
+  .resources-grid-item:nth-of-type(5) {
+    border-bottom: 10px solid #6360e5;
+  }
+  .resources-grid-item:nth-of-type(6) {
+    border-bottom: 10px solid #f05253;
     -ms-grid-column: 2;
         grid-column-start: 2;
   }
-  .item-work-study {
+  .resources-grid-item:nth-of-type(7) {
+    border-bottom: 10px solid #f1944e;
+  }
+  .resources-grid-item:nth-of-type(8) {
+    border-bottom: 10px solid #a3f5ef;
+  }
+  .resources-grid-item:nth-of-type(9) {
+    border-bottom: 10px solid #f05253;
+  }
+  .resources-grid-item:nth-of-type(10) {
+    border-bottom: 10px solid #6360e5;
     -ms-grid-column: 4;
         grid-column-start: 4;
+  }
+  .resources-grid-item:nth-of-type(11) {
+    border-bottom: 10px solid #a3f5ef;
+  }
+  .resources-grid-item:hover a,
+  .resources-grid-item:focus a {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  .resources-grid-item a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .resources-grid-item a.item-still-healthy {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+  }
+  .resources-grid-item a.item-still-healthy:hover, .resources-grid-item a.item-still-healthy:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+  }
+  .resources-grid-item a.item-policies {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+  }
+  .resources-grid-item a.item-policies:hover, .resources-grid-item a.item-policies:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+  }
+  .resources-grid-item a.item-handbook {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+  }
+  .resources-grid-item a.item-handbook:hover, .resources-grid-item a.item-handbook:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+  }
+  .resources-grid-item a.item-youtube {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+  }
+  .resources-grid-item a.item-youtube:hover, .resources-grid-item a.item-youtube:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+    background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+  }
+  .resources-grid-item a.item-forms {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+  }
+  .resources-grid-item a.item-forms:hover, .resources-grid-item a.item-forms:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+  }
+  .resources-grid-item a.item-about-hr {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+  }
+  .resources-grid-item a.item-about-hr:hover, .resources-grid-item a.item-about-hr:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+  }
+  .resources-grid-item a.item-wellness-guides {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+  }
+  .resources-grid-item a.item-wellness-guides:hover, .resources-grid-item a.item-wellness-guides:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+    background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+  }
+  .resources-grid-item a.item-fmla {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+  }
+  .resources-grid-item a.item-fmla:hover, .resources-grid-item a.item-fmla:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+  }
+  .resources-grid-item a.item-workplace-injury {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+  }
+  .resources-grid-item a.item-workplace-injury:hover, .resources-grid-item a.item-workplace-injury:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+  }
+  .resources-grid-item a.item-work-study {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+  }
+  .resources-grid-item a.item-work-study:hover, .resources-grid-item a.item-work-study:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+  }
+  .resources-grid-item a.item-employment {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+  }
+  .resources-grid-item a.item-employment:hover, .resources-grid-item a.item-employment:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
   }
   .home-content-wrapper {
         grid-template-areas: ". threecols ." ". admin .";
@@ -989,11 +1222,98 @@ a:hover, a:active {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: threecols;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    padding: 3.5rem 0;
+  }
+  .home-col {
+    background-color: #fafafa;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .home-col h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin: 0;
+    background-color: #3687ba;
+  }
+  .home-col .home-col-inner {
+    padding: 1.5rem;
+  }
+  .home-col .home-col-inner a.hollow-button {
+    margin: 1rem 0;
+    display: block;
+    text-align: center;
+  }
+  .home-col .cta-link {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
   }
   .home-administration-block-wrapper {
     -ms-grid-row: 2;
     -ms-grid-column: 2;
     grid-area: admin;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 547px;
+        grid-template-columns: auto 547px;
+    background-color: #172940;
+    color: #fff;
+  }
+  .home-admin-col-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .home-admin-col-2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .admin-col-inner {
+    padding: 2rem 2.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .admin-col-inner h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0 0;
+  }
+  .admin-col-inner h3:after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid #fff;
+    width: 10%;
+    padding: 0 0 1rem 0;
+  }
+  .admin-col-inner .cta-link {
+    padding: 0;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    color: #fff;
   }
 }
 
@@ -1044,21 +1364,77 @@ a:hover, a:active {
   display: grid;
   -ms-grid-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
       grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
-      grid-template-areas: ". footer ." ". copyrightpolicies .";
+      grid-template-areas: ". footer ." "copyrightpolicies copyrightpolicies copyrightpolicies";
   background-color: #172940;
   color: #fff;
+  margin: 3.5rem 0 0 0;
 }
 
 .footer-cols {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: footer;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 0.85fr 0.9fr 1fr;
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
+  gap: 1rem;
+  padding: 3.5rem 0;
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-col h4 {
+  margin: 0;
+}
+
+.footer-col a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-col address {
+  font-style: normal;
+}
+
+.footer-col address h5 {
+  margin: 0.7rem 0 0 0;
+}
+
+.footer-col address span {
+  display: block;
 }
 
 .footer-copyright-policies {
   -ms-grid-row: 2;
-  -ms-grid-column: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: copyrightpolicies;
+  background-color: #334a68;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.7rem 3rem;
+}
+
+.footer-copyright-policies a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-copyright-policies a:hover {
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------

@@ -1,5 +1,6 @@
 a {
   color: $color__link;
+  transition: all 0.2s ease-in-out;
 
   &:visited {
   }
@@ -17,5 +18,38 @@ a {
   &:hover,
   &:active {
     outline: 0;
+  }
+
+  &.primary-button {
+    background-color: $color__light-blue;
+    border-radius: 5px;
+    padding: 6px 30px 8px 25px;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $color__dark-blue;
+    }
+  }
+  &.hollow-button {
+    border-radius: 5px;
+    padding: 8px 30px;
+    border: 1px solid $color__dark-blue;
+    text-decoration: none;
+    color: $color__dark-blue;
+
+    &:hover {
+      background-color: $color__dark-blue;
+      color: #fff;
+    }
+  }
+
+  &.cta-link {
+    color: $color__dark-blue;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 1.5rem;
   }
 }
