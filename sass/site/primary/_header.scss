@@ -1,8 +1,22 @@
+.site-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem 0 1.5rem 0.5rem;
+}
+
+.site-branding {
+  width: 70%;
+}
+
 @media screen and (min-width: 35rem) {
   .site-header {
     display: grid;
-    grid-template-columns: $size__outer-margins 387px auto;
+    grid-template-columns: $size__outer-margins 387px 1fr; //used to be auto instead of 1fr but the mobile-version of .site-header f'd it up
     grid-template-areas: ". site-branding site-nav";
+    justify-content: flex-start; //reset
+    align-items: stretch; //reset
+    padding: 0; //reset
   }
 
   .site-branding,
@@ -13,10 +27,12 @@
   .site-branding {
     grid-area: site-branding;
     min-height: 129px;
+    width: auto;
   }
 
   .main-navigation {
     grid-area: site-nav;
     background-color: $color__dark-blue;
+    width: 100%;
   }
 }

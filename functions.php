@@ -17,6 +17,16 @@ function atsu_hr_login_required() {
 }
 add_action( 'template_redirect', 'atsu_hr_login_required' );
 
+/*Remove admin bar for general ATSU users visiting the website*/
+
+add_action('after_setup_theme', 'remove_admin_bar');
+ 
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
+
 /**
  * atsu-hr functions and definitions
  *
@@ -27,7 +37,7 @@ add_action( 'template_redirect', 'atsu_hr_login_required' );
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.1' );
 }
 if ( ! function_exists( 'atsu_hr_setup' ) ) :
 	/**

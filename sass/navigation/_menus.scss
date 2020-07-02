@@ -1,6 +1,40 @@
+.menu-top-navigation-container {
+  display: none;
+}
+
+.menu-top-navigation-for-mobile-container {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  background: white;
+  z-index: 9999;
+  text-align: center;
+  font-size: 6vw;
+  margin-top: 1rem;
+
+  li {
+    padding: 10px 0;
+  }
+}
+
+.main-navigation.toggled .menu-top-navigation-for-mobile-container {
+  border-bottom: 2px solid $color__mid-blue;
+  border-top: 2px solid $color__mid-blue;
+  padding: 1rem 0;
+  box-shadow: 0 30px 20px white;
+}
+
+.menu-toggle {
+  border: 0;
+  background: none;
+}
+
+.material-icons.md-menu {
+  font-size: 2rem;
+}
+
 .main-navigation {
   display: block;
-  width: 100%;
 
   ul {
     display: none;
@@ -49,7 +83,7 @@
     }
 
     a {
-      color: #fff;
+      color: #000;
     }
     li:hover > ul,
     li.focus > ul {
@@ -67,7 +101,6 @@
 
     &:hover > a,
     &.focus > a {
-      background: $color__mid-blue;
     }
   }
 
@@ -90,6 +123,10 @@
 }
 
 @media screen and (min-width: 37.5em) {
+  .menu-top-navigation-for-mobile-container {
+    display: none;
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -110,6 +147,7 @@
         display: flex;
         align-items: center;
         padding: 0 0.55rem;
+        color: #fff;
       }
     }
     li:first-of-type a {
@@ -126,11 +164,11 @@
     }
   }
 
-  .main-navigation ul li.menu-item-33:hover > ul,
-  .main-navigation ul li.menu-item-33:focus > ul {
+  .main-navigation ul li.benefits:hover > ul,
+  .main-navigation ul li.benefits:focus > ul {
     left: -320px;
   }
-  .main-navigation ul li.menu-item-33 ul {
+  .main-navigation ul li.benefits ul {
     width: 15rem;
     display: block;
     width: 52rem;
@@ -141,6 +179,11 @@
       page-break-inside: avoid;
       break-inside: avoid;
     }
+  }
+
+  .main-navigation li:hover > a,
+  .main-navigation li.focus > a {
+    background: #334a68;
   }
 }
 

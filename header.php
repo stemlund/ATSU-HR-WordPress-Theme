@@ -28,15 +28,24 @@
 		<div class="site-branding">
 		<img src="<?php echo get_template_directory_uri(); ?>/img/atsu-hr-logo.svg" alt="Human Resources at A.T. Still University">
 		</div><!-- .site-branding -->
-
 		<nav id="site-navigation" class="main-navigation">	
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu <i class="material-icons">menu</i></button>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="material-icons md-menu">menu</i></button>
+
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
-					// 'link_after'	 => '<i class="material-icons">expand_more</i>'
+					'menu_class'	 => 'menu-desktop',
+				)
+			);
+				?>
+				
+			<?php
+			wp_nav_menu(
+				array(
+					'menu'        => '4',
+					'menu_class'	 => 'menu-mobile',
 				)
 			);
 				?>

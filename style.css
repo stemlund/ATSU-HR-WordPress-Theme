@@ -653,9 +653,44 @@ a.cta-link {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+.menu-top-navigation-container {
+  display: none;
+}
+
+.menu-top-navigation-for-mobile-container {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  background: white;
+  z-index: 9999;
+  text-align: center;
+  font-size: 6vw;
+  margin-top: 1rem;
+}
+
+.menu-top-navigation-for-mobile-container li {
+  padding: 10px 0;
+}
+
+.main-navigation.toggled .menu-top-navigation-for-mobile-container {
+  border-bottom: 2px solid #334a68;
+  border-top: 2px solid #334a68;
+  padding: 1rem 0;
+  -webkit-box-shadow: 0 30px 20px white;
+          box-shadow: 0 30px 20px white;
+}
+
+.menu-toggle {
+  border: 0;
+  background: none;
+}
+
+.material-icons.md-menu {
+  font-size: 2rem;
+}
+
 .main-navigation {
   display: block;
-  width: 100%;
 }
 
 .main-navigation ul {
@@ -704,7 +739,7 @@ a.cta-link {
 }
 
 .main-navigation ul a {
-  color: #fff;
+  color: #000;
 }
 
 .main-navigation ul li:hover > ul,
@@ -721,11 +756,6 @@ a.cta-link {
   position: relative;
 }
 
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
-  background: #334a68;
-}
-
 .main-navigation a {
   display: block;
   text-decoration: none;
@@ -738,6 +768,9 @@ a.cta-link {
 }
 
 @media screen and (min-width: 37.5em) {
+  .menu-top-navigation-for-mobile-container {
+    display: none;
+  }
   .menu-toggle {
     display: none;
   }
@@ -770,6 +803,7 @@ a.cta-link {
         -ms-flex-align: center;
             align-items: center;
     padding: 0 0.55rem;
+    color: #fff;
   }
   .main-navigation ul li:first-of-type a {
     padding: 0 0.55rem 0 1.25rem;
@@ -781,20 +815,24 @@ a.cta-link {
   .main-navigation ul .sub-menu li a:hover {
     background-color: #e4e4e4;
   }
-  .main-navigation ul li.menu-item-33:hover > ul,
-  .main-navigation ul li.menu-item-33:focus > ul {
+  .main-navigation ul li.benefits:hover > ul,
+  .main-navigation ul li.benefits:focus > ul {
     left: -320px;
   }
-  .main-navigation ul li.menu-item-33 ul {
+  .main-navigation ul li.benefits ul {
     width: 15rem;
     display: block;
     width: 52rem;
     -webkit-columns: 3 auto;
             columns: 3 auto;
   }
-  .main-navigation ul li.menu-item-33 ul li {
+  .main-navigation ul li.benefits ul li {
     -webkit-column-break-inside: avoid;
     break-inside: avoid;
+  }
+  .main-navigation li:hover > a,
+  .main-navigation li.focus > a {
+    background: #334a68;
   }
 }
 
@@ -1331,13 +1369,36 @@ a.cta-link {
 /*--------------------------------------------------------------
 ## Header/Footer
 --------------------------------------------------------------*/
+.site-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 0 1.5rem 0.5rem;
+}
+
+.site-branding {
+  width: 70%;
+}
+
 @media screen and (min-width: 35rem) {
   .site-header {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: calc(50vw - 39rem) 387px auto;
-        grid-template-columns: calc(50vw - 39rem) 387px auto;
+    -ms-grid-columns: calc(50vw - 39rem) 387px 1fr;
+        grid-template-columns: calc(50vw - 39rem) 387px 1fr;
         grid-template-areas: ". site-branding site-nav";
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    padding: 0;
   }
   .site-branding,
   .main-navigation {
@@ -1350,12 +1411,14 @@ a.cta-link {
     -ms-grid-column: 2;
     grid-area: site-branding;
     min-height: 129px;
+    width: auto;
   }
   .main-navigation {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
     grid-area: site-nav;
     background-color: #172940;
+    width: 100%;
   }
 }
 
