@@ -10,9 +10,8 @@
  */
 
 ?>
-	</div><!-- .main-and-widget-wrapper -->
 </div><!-- #page -->
-	<!--<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer">
 		<div class="footer-cols">
 			<div class="footer-col footer-col-logo">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/atsu-logo.svg" alt="">

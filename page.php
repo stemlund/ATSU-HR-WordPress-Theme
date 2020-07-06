@@ -14,7 +14,8 @@
 
 get_header();
 ?>
-
+<div class="main-and-widgets-wrapper">
+	<div class="page-heading"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></div>
 	<main id="primary" class="site-main">
 
 		<?php
@@ -32,7 +33,7 @@ get_header();
 		?>
 
 	</main><!-- #main -->
-
+	<?php get_sidebar(); ?>
+</div><!-- .main-and-widget-wrapper -->
 <?php
-get_sidebar();
 get_footer();

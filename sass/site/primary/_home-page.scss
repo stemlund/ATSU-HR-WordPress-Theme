@@ -1,4 +1,232 @@
-@media screen and (min-width: 35rem) {
+.slider-inner-wrapper {
+  background-color: #fff;
+  border-left: 10px solid $color__red;
+}
+
+.slide {
+  width: 100%;
+  padding: 2rem 1rem 1.4rem 2rem;
+
+  p {
+    padding: 0;
+    margin: 0 0 1.5em 0;
+  }
+}
+
+a.slider-button {
+  display: block;
+  padding: 1px 15px 6px 15px;
+  background-color: $color__light-blue;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color__dark-blue;
+  }
+}
+
+.md-chevron {
+  position: relative;
+  top: 7px;
+}
+
+.cycle-pager {
+  margin: -0.8rem 1.5rem 1.5rem 0;
+  line-height: 0.5em;
+  font-size: 4em;
+  float: right;
+  color: $color__gray;
+}
+
+.cycle-pager-active {
+  color: $color__dark-blue;
+}
+
+.resources-grid-inner-wrapper {
+  h2 {
+    color: $color__light-blue;
+    font-weight: 400;
+    font-size: 2.65rem;
+    line-height: 2.4rem;
+    margin: 1.2em 0 0.5em 0;
+
+    span {
+      color: $color__dark-blue;
+      display: block;
+      font-weight: 700;
+      font-size: 1.49rem;
+    }
+  }
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resources-grid-item {
+  display: flex;
+  height: 130px;
+  overflow: hidden;
+  margin: 0 1rem;
+
+  &:nth-of-type(1) {
+    border-bottom: 10px solid $color__red;
+  }
+  &:nth-of-type(2) {
+    border-bottom: 10px solid $color__purple;
+  }
+  &:nth-of-type(3) {
+    border-bottom: 10px solid $color__teal;
+  }
+  &:nth-of-type(4) {
+    border-bottom: 10px solid $color__orange;
+  }
+  &:nth-of-type(5) {
+    border-bottom: 10px solid $color__purple;
+  }
+  &:nth-of-type(6) {
+    border-bottom: 10px solid $color__red;
+  }
+  &:nth-of-type(7) {
+    border-bottom: 10px solid $color__orange;
+  }
+  &:nth-of-type(8) {
+    border-bottom: 10px solid $color__teal;
+  }
+  &:nth-of-type(9) {
+    border-bottom: 10px solid $color__red;
+  }
+  &:nth-of-type(10) {
+    border-bottom: 10px solid $color__purple;
+  }
+  &:nth-of-type(11) {
+    border-bottom: 10px solid $color__teal;
+  }
+
+  &:hover a,
+  &:focus a {
+    transform: scale(1.1);
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    transition: all 0.3s ease-in-out;
+
+    &.item-still-healthy {
+      @include photo-with-gray-overlay(still-healthy);
+
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-red, still-healthy);
+      }
+    }
+
+    &.item-policies {
+      @include photo-with-gray-overlay(policies);
+
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-purple, policies);
+      }
+    }
+
+    &.item-handbook {
+      @include photo-with-gray-overlay(handbook);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-teal, handbook);
+      }
+    }
+
+    &.item-youtube {
+      @include photo-with-gray-overlay(youtube);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-orange, youtube);
+      }
+    }
+
+    &.item-forms {
+      @include photo-with-gray-overlay(forms);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-purple, forms);
+      }
+    }
+
+    &.item-about-hr {
+      @include photo-with-gray-overlay(about-hr);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-red, about-hr);
+      }
+    }
+
+    &.item-wellness-guides {
+      @include photo-with-gray-overlay(wellness-guides);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover(
+          $color__dark-orange,
+          wellness-guides
+        );
+      }
+    }
+
+    &.item-fmla {
+      @include photo-with-gray-overlay(fmla);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-teal, fmla);
+      }
+    }
+
+    &.item-workplace-injury {
+      @include photo-with-gray-overlay(workplace-injury);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover(
+          $color__dark-red,
+          workplace-injury
+        );
+      }
+    }
+
+    &.item-work-study {
+      @include photo-with-gray-overlay(work-study);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-purple, work-study);
+      }
+    }
+
+    &.item-employment {
+      @include photo-with-gray-overlay(employment);
+      &:hover,
+      &:focus {
+        @include photo-with-gray-overlay-hover($color__dark-teal, employment);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $big-baby-bear) {
   body.home .main-and-widgets-wrapper {
     display: block;
   }
@@ -19,8 +247,6 @@
   .slider-inner-wrapper {
     grid-area: slider;
     align-self: center;
-    background-color: #fff;
-    border-left: 10px solid $color__red;
   }
 
   .slider-inner-wrapper {
@@ -29,45 +255,6 @@
 
   .cycle-slideshow {
     width: 97%;
-  }
-
-  .slide {
-    width: 100%;
-    padding: 2rem 1rem 1.4rem 2rem;
-
-    p {
-      padding: 0;
-      margin: 0 0 1.5em 0;
-    }
-  }
-
-  a.slider-button {
-    display: block;
-    padding: 1px 15px 6px 15px;
-    background-color: $color__light-blue;
-    color: #fff;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $color__dark-blue;
-    }
-  }
-
-  .md-chevron {
-    position: relative;
-    top: 7px;
-  }
-
-  .cycle-pager {
-    margin: -0.8rem 1.5rem 1.5rem 0;
-    line-height: 0.5em;
-    font-size: 4em;
-    float: right;
-    color: $color__gray;
-  }
-
-  .cycle-pager-active {
-    color: $color__dark-blue;
   }
 
   .resources-grid-wrapper {
@@ -79,195 +266,23 @@
 
   .resources-grid-inner-wrapper {
     grid-area: resources;
-
-    h2 {
-      color: $color__light-blue;
-      font-weight: 400;
-      font-size: 2.65rem;
-      line-height: 2.4rem;
-      margin: 1.2em 0 0.5em 0;
-
-      span {
-        color: $color__dark-blue;
-        display: block;
-        font-weight: 700;
-        font-size: 1.49rem;
-      }
-    }
   }
 
   .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    justify-content: flex-start;
   }
 
   .resources-grid-item {
-    display: flex;
     height: 230px;
-    overflow: hidden;
-
-    &:nth-of-type(1) {
-      border-bottom: 10px solid $color__red;
-    }
-    &:nth-of-type(2) {
-      border-bottom: 10px solid $color__purple;
-    }
-    &:nth-of-type(3) {
-      border-bottom: 10px solid $color__teal;
-    }
-    &:nth-of-type(4) {
-      border-bottom: 10px solid $color__orange;
-    }
-    &:nth-of-type(5) {
-      border-bottom: 10px solid $color__purple;
-    }
+    margin: 0;
     &:nth-of-type(6) {
-      border-bottom: 10px solid $color__red;
       grid-column-start: 2;
     }
-    &:nth-of-type(7) {
-      border-bottom: 10px solid $color__orange;
-    }
-    &:nth-of-type(8) {
-      border-bottom: 10px solid $color__teal;
-    }
-    &:nth-of-type(9) {
-      border-bottom: 10px solid $color__red;
-    }
     &:nth-of-type(10) {
-      border-bottom: 10px solid $color__purple;
       grid-column-start: 4;
     }
-    &:nth-of-type(11) {
-      border-bottom: 10px solid $color__teal;
-    }
-
-    &:hover a,
-    &:focus a {
-      transform: scale(1.1);
-    }
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      flex-wrap: wrap;
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      width: 100%;
-      background-size: cover, cover;
-      background-repeat: no-repeat, no-repeat;
-      transition: all 0.3s ease-in-out;
-
-      &.item-still-healthy {
-        @include photo-with-gray-overlay(still-healthy);
-
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover(
-            $color__dark-red,
-            still-healthy
-          );
-        }
-      }
-
-      &.item-policies {
-        @include photo-with-gray-overlay(policies);
-
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-purple, policies);
-        }
-      }
-
-      &.item-handbook {
-        @include photo-with-gray-overlay(handbook);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-teal, handbook);
-        }
-      }
-
-      &.item-youtube {
-        @include photo-with-gray-overlay(youtube);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-orange, youtube);
-        }
-      }
-
-      &.item-forms {
-        @include photo-with-gray-overlay(forms);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-purple, forms);
-        }
-      }
-
-      &.item-about-hr {
-        @include photo-with-gray-overlay(about-hr);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-red, about-hr);
-        }
-      }
-
-      &.item-wellness-guides {
-        @include photo-with-gray-overlay(wellness-guides);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover(
-            $color__dark-orange,
-            wellness-guides
-          );
-        }
-      }
-
-      &.item-fmla {
-        @include photo-with-gray-overlay(fmla);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-teal, fmla);
-        }
-      }
-
-      &.item-workplace-injury {
-        @include photo-with-gray-overlay(workplace-injury);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover(
-            $color__dark-red,
-            workplace-injury
-          );
-        }
-      }
-
-      &.item-work-study {
-        @include photo-with-gray-overlay(work-study);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover(
-            $color__dark-purple,
-            work-study
-          );
-        }
-      }
-
-      &.item-employment {
-        @include photo-with-gray-overlay(employment);
-        &:hover,
-        &:focus {
-          @include photo-with-gray-overlay-hover($color__dark-teal, employment);
-        }
-      }
-    }
   }
+
   .home-content-wrapper {
     grid-template-areas:
       ". threecols ."

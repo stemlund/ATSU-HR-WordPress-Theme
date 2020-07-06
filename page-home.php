@@ -14,6 +14,7 @@
 
 get_header();
 ?>
+<div class="main-wrapper">
 	<main id="primary" class="site-main">
 
 
@@ -115,6 +116,6 @@ get_header();
 		<?php endwhile; ?>
 
 	</main><!-- #main -->
-
+</div><!-- main-wrapper-->
 <?php
 get_footer();

@@ -176,6 +176,9 @@ function atsu_hr_scripts() {
 	wp_enqueue_style( 'adobe-fonts', '//use.typekit.net/jde4nea.css');
 	wp_enqueue_style( 'google-material-icons', '//fonts.googleapis.com/icon?family=Material+Icons');
 
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), null, true);
+
 	if ( is_page_template( 'page-home.php' ) ) {
 		wp_enqueue_script( 'cycle', get_template_directory_uri() . '/js/cycle/cycle.js', array('jquery'), null, true );
 		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js', null, true);

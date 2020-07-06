@@ -1,0 +1,64 @@
+.widget-area {
+  background-color: $color__mid-gray;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0.3rem 0;
+    }
+  }
+
+  address {
+    font-style: normal;
+
+    h5 {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0 0 1rem 0;
+    }
+  }
+}
+
+.sidebar-head {
+  background-color: $color__light-blue;
+  color: #fff;
+  padding: 2rem 3rem;
+  margin: 0;
+}
+
+.widget-area-inner {
+  margin: 2rem 3rem;
+
+  > ul {
+    margin: 0 0 3rem 0;
+  }
+}
+
+.widget-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: $color__dark-blue;
+}
+
+.widget_nav_menu > .widget-title {
+  margin: 1.5rem 0 0.5rem -1.6rem;
+  cursor: pointer;
+}
+
+.md-widget-arrow {
+  position: relative;
+  top: 6px;
+}
+
+.widget:last-of-type .widget-title {
+  color: $color__light-blue;
+  text-transform: unset;
+  margin: 5rem 0 1.5rem 0;
+}

@@ -402,7 +402,7 @@ blockquote {
 }
 
 address {
-  margin: 0 0 1.5em;
+  margin: 0;
 }
 
 pre {
@@ -599,13 +599,14 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #4169e1;
+  color: #334a68;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 a:hover, a:focus, a:active {
-  color: #191970;
+  color: #172940;
+  text-decoration: none;
 }
 
 a:focus {
@@ -982,21 +983,308 @@ a.cta-link {
     display: grid;
     -ms-grid-columns: calc(50vw - 39rem) auto 396px calc(50vw - 39rem);
         grid-template-columns: calc(50vw - 39rem) auto 396px calc(50vw - 39rem);
-        grid-template-areas: ". main sidebar .";
+        grid-template-areas: "pageheading pageheading pageheading pageheading" ". main sidebar .";
+  }
+  .page-heading {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: pageheading;
+    background: #f3f3f3;
+    padding: 2.6rem 0;
+    margin: 0 0 3rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(50vw - 39rem) auto calc(50vw - 39rem);
+        grid-template-columns: calc(50vw - 39rem) auto calc(50vw - 39rem);
+        grid-template-areas: ". pageheadingh1 .";
+  }
+  .page-heading h1.entry-title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: pageheadingh1;
+    margin: 0;
+    color: #172940;
+    font-weight: 400;
+    font-size: 2.3em;
   }
   .site-main {
-    -ms-grid-row: 1;
+    -ms-grid-row: 2;
     -ms-grid-column: 2;
     grid-area: main;
   }
   .widget-area {
-    -ms-grid-row: 1;
+    -ms-grid-row: 2;
     -ms-grid-column: 3;
     grid-area: sidebar;
   }
 }
 
-@media screen and (min-width: 35rem) {
+.slider-inner-wrapper {
+  background-color: #fff;
+  border-left: 10px solid #f05253;
+}
+
+.slide {
+  width: 100%;
+  padding: 2rem 1rem 1.4rem 2rem;
+}
+
+.slide p {
+  padding: 0;
+  margin: 0 0 1.5em 0;
+}
+
+a.slider-button {
+  display: block;
+  padding: 1px 15px 6px 15px;
+  background-color: #3687ba;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.slider-button:hover {
+  background-color: #172940;
+}
+
+.md-chevron {
+  position: relative;
+  top: 7px;
+}
+
+.cycle-pager {
+  margin: -0.8rem 1.5rem 1.5rem 0;
+  line-height: 0.5em;
+  font-size: 4em;
+  float: right;
+  color: #e4e4e4;
+}
+
+.cycle-pager-active {
+  color: #172940;
+}
+
+.resources-grid-inner-wrapper h2 {
+  color: #3687ba;
+  font-weight: 400;
+  font-size: 2.65rem;
+  line-height: 2.4rem;
+  margin: 1.2em 0 0.5em 0;
+}
+
+.resources-grid-inner-wrapper h2 span {
+  color: #172940;
+  display: block;
+  font-weight: 700;
+  font-size: 1.49rem;
+}
+
+.resources-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resources-grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 130px;
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.resources-grid-item:nth-of-type(1) {
+  border-bottom: 10px solid #f05253;
+}
+
+.resources-grid-item:nth-of-type(2) {
+  border-bottom: 10px solid #6360e5;
+}
+
+.resources-grid-item:nth-of-type(3) {
+  border-bottom: 10px solid #a3f5ef;
+}
+
+.resources-grid-item:nth-of-type(4) {
+  border-bottom: 10px solid #f1944e;
+}
+
+.resources-grid-item:nth-of-type(5) {
+  border-bottom: 10px solid #6360e5;
+}
+
+.resources-grid-item:nth-of-type(6) {
+  border-bottom: 10px solid #f05253;
+}
+
+.resources-grid-item:nth-of-type(7) {
+  border-bottom: 10px solid #f1944e;
+}
+
+.resources-grid-item:nth-of-type(8) {
+  border-bottom: 10px solid #a3f5ef;
+}
+
+.resources-grid-item:nth-of-type(9) {
+  border-bottom: 10px solid #f05253;
+}
+
+.resources-grid-item:nth-of-type(10) {
+  border-bottom: 10px solid #6360e5;
+}
+
+.resources-grid-item:nth-of-type(11) {
+  border-bottom: 10px solid #a3f5ef;
+}
+
+.resources-grid-item:hover a,
+.resources-grid-item:focus a {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.resources-grid-item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.resources-grid-item a.item-still-healthy {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+}
+
+.resources-grid-item a.item-still-healthy:hover, .resources-grid-item a.item-still-healthy:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+  background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
+}
+
+.resources-grid-item a.item-policies {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+}
+
+.resources-grid-item a.item-policies:hover, .resources-grid-item a.item-policies:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+  background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
+}
+
+.resources-grid-item a.item-handbook {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+}
+
+.resources-grid-item a.item-handbook:hover, .resources-grid-item a.item-handbook:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+  background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
+}
+
+.resources-grid-item a.item-youtube {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+}
+
+.resources-grid-item a.item-youtube:hover, .resources-grid-item a.item-youtube:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+  background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
+}
+
+.resources-grid-item a.item-forms {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+}
+
+.resources-grid-item a.item-forms:hover, .resources-grid-item a.item-forms:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+  background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
+}
+
+.resources-grid-item a.item-about-hr {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+}
+
+.resources-grid-item a.item-about-hr:hover, .resources-grid-item a.item-about-hr:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+  background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
+}
+
+.resources-grid-item a.item-wellness-guides {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+}
+
+.resources-grid-item a.item-wellness-guides:hover, .resources-grid-item a.item-wellness-guides:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+  background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
+}
+
+.resources-grid-item a.item-fmla {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+}
+
+.resources-grid-item a.item-fmla:hover, .resources-grid-item a.item-fmla:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+  background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
+}
+
+.resources-grid-item a.item-workplace-injury {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+}
+
+.resources-grid-item a.item-workplace-injury:hover, .resources-grid-item a.item-workplace-injury:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+  background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
+}
+
+.resources-grid-item a.item-work-study {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+}
+
+.resources-grid-item a.item-work-study:hover, .resources-grid-item a.item-work-study:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+  background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
+}
+
+.resources-grid-item a.item-employment {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+}
+
+.resources-grid-item a.item-employment:hover, .resources-grid-item a.item-employment:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+  background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
+}
+
+@media screen and (min-width: 560px) {
   body.home .main-and-widgets-wrapper {
     display: block;
   }
@@ -1020,46 +1308,12 @@ a.cta-link {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    background-color: #fff;
-    border-left: 10px solid #f05253;
   }
   .slider-inner-wrapper {
     width: 39rem;
   }
   .cycle-slideshow {
     width: 97%;
-  }
-  .slide {
-    width: 100%;
-    padding: 2rem 1rem 1.4rem 2rem;
-  }
-  .slide p {
-    padding: 0;
-    margin: 0 0 1.5em 0;
-  }
-  a.slider-button {
-    display: block;
-    padding: 1px 15px 6px 15px;
-    background-color: #3687ba;
-    color: #fff;
-    text-decoration: none;
-  }
-  a.slider-button:hover {
-    background-color: #172940;
-  }
-  .md-chevron {
-    position: relative;
-    top: 7px;
-  }
-  .cycle-pager {
-    margin: -0.8rem 1.5rem 1.5rem 0;
-    line-height: 0.5em;
-    font-size: 4em;
-    float: right;
-    color: #e4e4e4;
-  }
-  .cycle-pager-active {
-    color: #172940;
   }
   .resources-grid-wrapper {
         grid-template-areas: ". resources .";
@@ -1072,186 +1326,22 @@ a.cta-link {
     -ms-grid-column: 2;
     grid-area: resources;
   }
-  .resources-grid-inner-wrapper h2 {
-    color: #3687ba;
-    font-weight: 400;
-    font-size: 2.65rem;
-    line-height: 2.4rem;
-    margin: 1.2em 0 0.5em 0;
-  }
-  .resources-grid-inner-wrapper h2 span {
-    color: #172940;
-    display: block;
-    font-weight: 700;
-    font-size: 1.49rem;
-  }
   .resources-grid {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
   .resources-grid-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     height: 230px;
-    overflow: hidden;
-  }
-  .resources-grid-item:nth-of-type(1) {
-    border-bottom: 10px solid #f05253;
-  }
-  .resources-grid-item:nth-of-type(2) {
-    border-bottom: 10px solid #6360e5;
-  }
-  .resources-grid-item:nth-of-type(3) {
-    border-bottom: 10px solid #a3f5ef;
-  }
-  .resources-grid-item:nth-of-type(4) {
-    border-bottom: 10px solid #f1944e;
-  }
-  .resources-grid-item:nth-of-type(5) {
-    border-bottom: 10px solid #6360e5;
+    margin: 0;
   }
   .resources-grid-item:nth-of-type(6) {
-    border-bottom: 10px solid #f05253;
     -ms-grid-column: 2;
         grid-column-start: 2;
   }
-  .resources-grid-item:nth-of-type(7) {
-    border-bottom: 10px solid #f1944e;
-  }
-  .resources-grid-item:nth-of-type(8) {
-    border-bottom: 10px solid #a3f5ef;
-  }
-  .resources-grid-item:nth-of-type(9) {
-    border-bottom: 10px solid #f05253;
-  }
   .resources-grid-item:nth-of-type(10) {
-    border-bottom: 10px solid #6360e5;
     -ms-grid-column: 4;
         grid-column-start: 4;
-  }
-  .resources-grid-item:nth-of-type(11) {
-    border-bottom: 10px solid #a3f5ef;
-  }
-  .resources-grid-item:hover a,
-  .resources-grid-item:focus a {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  .resources-grid-item a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background-size: cover, cover;
-    background-repeat: no-repeat, no-repeat;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  .resources-grid-item a.item-still-healthy {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
-  }
-  .resources-grid-item a.item-still-healthy:hover, .resources-grid-item a.item-still-healthy:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
-    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/still-healthy.jpg");
-  }
-  .resources-grid-item a.item-policies {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
-  }
-  .resources-grid-item a.item-policies:hover, .resources-grid-item a.item-policies:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/policies.jpg");
-    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/policies.jpg");
-  }
-  .resources-grid-item a.item-handbook {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
-  }
-  .resources-grid-item a.item-handbook:hover, .resources-grid-item a.item-handbook:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
-    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/handbook.jpg");
-  }
-  .resources-grid-item a.item-youtube {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
-  }
-  .resources-grid-item a.item-youtube:hover, .resources-grid-item a.item-youtube:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
-    background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/youtube.jpg");
-  }
-  .resources-grid-item a.item-forms {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
-  }
-  .resources-grid-item a.item-forms:hover, .resources-grid-item a.item-forms:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/forms.jpg");
-    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/forms.jpg");
-  }
-  .resources-grid-item a.item-about-hr {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
-  }
-  .resources-grid-item a.item-about-hr:hover, .resources-grid-item a.item-about-hr:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
-    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/about-hr.jpg");
-  }
-  .resources-grid-item a.item-wellness-guides {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
-  }
-  .resources-grid-item a.item-wellness-guides:hover, .resources-grid-item a.item-wellness-guides:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(126, 66, 21, 0.7)), to(rgba(126, 66, 21, 0.7))), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
-    background-image: linear-gradient(rgba(126, 66, 21, 0.7), rgba(126, 66, 21, 0.7)), url("/wp-content/themes/atsu-hr/img/wellness-guides.jpg");
-  }
-  .resources-grid-item a.item-fmla {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
-  }
-  .resources-grid-item a.item-fmla:hover, .resources-grid-item a.item-fmla:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
-    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/fmla.jpg");
-  }
-  .resources-grid-item a.item-workplace-injury {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
-  }
-  .resources-grid-item a.item-workplace-injury:hover, .resources-grid-item a.item-workplace-injury:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(145, 18, 19, 0.7)), to(rgba(145, 18, 19, 0.7))), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
-    background-image: linear-gradient(rgba(145, 18, 19, 0.7), rgba(145, 18, 19, 0.7)), url("/wp-content/themes/atsu-hr/img/workplace-injury.jpg");
-  }
-  .resources-grid-item a.item-work-study {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
-  }
-  .resources-grid-item a.item-work-study:hover, .resources-grid-item a.item-work-study:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 30, 137, 0.7)), to(rgba(32, 30, 137, 0.7))), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
-    background-image: linear-gradient(rgba(32, 30, 137, 0.7), rgba(32, 30, 137, 0.7)), url("/wp-content/themes/atsu-hr/img/work-study.jpg");
-  }
-  .resources-grid-item a.item-employment {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
-  }
-  .resources-grid-item a.item-employment:hover, .resources-grid-item a.item-employment:focus {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(54, 92, 89, 0.7)), to(rgba(54, 92, 89, 0.7))), url("/wp-content/themes/atsu-hr/img/employment.jpg");
-    background-image: linear-gradient(rgba(54, 92, 89, 0.7), rgba(54, 92, 89, 0.7)), url("/wp-content/themes/atsu-hr/img/employment.jpg");
   }
   .home-content-wrapper {
         grid-template-areas: ". threecols ." ". admin .";
@@ -1355,6 +1445,71 @@ a.cta-link {
   }
 }
 
+.widget-area {
+  background-color: #f3f3f3;
+}
+
+.widget-area ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget-area ul li {
+  padding: 0.3rem 0;
+}
+
+.widget-area address {
+  font-style: normal;
+}
+
+.widget-area address h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.widget-area address p {
+  margin: 0;
+  padding: 0 0 1rem 0;
+}
+
+.sidebar-head {
+  background-color: #3687ba;
+  color: #fff;
+  padding: 2rem 3rem;
+  margin: 0;
+}
+
+.widget-area-inner {
+  margin: 2rem 3rem;
+}
+
+.widget-area-inner > ul {
+  margin: 0 0 3rem 0;
+}
+
+.widget-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #172940;
+}
+
+.widget_nav_menu > .widget-title {
+  margin: 1.5rem 0 0.5rem -1.6rem;
+  cursor: pointer;
+}
+
+.md-widget-arrow {
+  position: relative;
+  top: 6px;
+}
+
+.widget:last-of-type .widget-title {
+  color: #3687ba;
+  text-transform: unset;
+  margin: 5rem 0 1.5rem 0;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -1425,24 +1580,18 @@ a.cta-link {
 .site-footer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
-      grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
-      grid-template-areas: ". footer ." "copyrightpolicies copyrightpolicies copyrightpolicies";
   background-color: #172940;
   color: #fff;
   margin: 3.5rem 0 0 0;
 }
 
 .footer-cols {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: footer;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1.5fr 0.85fr 0.9fr 1fr;
-      grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
-  gap: 1rem;
-  padding: 3.5rem 0;
+  padding: 2rem 0 0 0;
+}
+
+.footer-col {
+  padding: 2rem 3rem;
+  border-bottom: 1px solid #334a68;
 }
 
 .footer-col ul {
@@ -1477,18 +1626,8 @@ a.cta-link {
 }
 
 .footer-copyright-policies {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: copyrightpolicies;
-  background-color: #334a68;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   padding: 0.7rem 3rem;
+  background-color: #334a68;
 }
 
 .footer-copyright-policies a {
@@ -1498,6 +1637,43 @@ a.cta-link {
 
 .footer-copyright-policies a:hover {
   text-decoration: underline;
+}
+
+@media screen and (min-width: 560px) {
+  .site-footer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+        grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+        grid-template-areas: ". footer ." "copyrightpolicies copyrightpolicies copyrightpolicies";
+  }
+  .footer-cols {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: footer;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1.5fr 0.85fr 0.9fr 1fr;
+        grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
+    gap: 1rem;
+    padding: 3.5rem 0;
+  }
+  .footer-col {
+    padding: 0;
+    border-bottom: 0;
+  }
+  .footer-copyright-policies {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: copyrightpolicies;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 /*--------------------------------------------------------------

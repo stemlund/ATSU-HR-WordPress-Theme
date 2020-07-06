@@ -26,7 +26,30 @@
   .main-and-widgets-wrapper {
     display: grid;
     grid-template-columns: $size__outer-margins auto 396px $size__outer-margins;
-    grid-template-areas: ". main sidebar .";
+    grid-template-areas:
+      "pageheading pageheading pageheading pageheading"
+      ". main sidebar .";
+  }
+
+  .main-wrapper {
+  }
+
+  .page-heading {
+    grid-area: pageheading;
+    background: $color__mid-gray;
+    padding: 2.6rem 0;
+    margin: 0 0 3rem 0;
+    display: grid;
+    grid-template-columns: $size__outer-margins auto $size__outer-margins;
+    grid-template-areas: ". pageheadingh1 .";
+  }
+
+  .page-heading h1.entry-title {
+    grid-area: pageheadingh1;
+    margin: 0;
+    color: $color__dark-blue;
+    font-weight: 400;
+    font-size: 2.3em;
   }
 
   .site-main {

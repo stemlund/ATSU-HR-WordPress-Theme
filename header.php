@@ -51,4 +51,3 @@
 				?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-<div class="main-and-widgets-wrapper">
