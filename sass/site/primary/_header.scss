@@ -9,7 +9,7 @@
   width: 70%;
 }
 
-@media screen and (min-width: 35rem) {
+@media screen and (min-width: $great-grandpa-bear) {
   .site-header {
     display: grid;
     grid-template-columns: $size__outer-margins 387px 1fr; //used to be auto instead of 1fr but the mobile-version of .site-header f'd it up

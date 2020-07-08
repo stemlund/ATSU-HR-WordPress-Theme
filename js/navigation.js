@@ -13,6 +13,7 @@
 	}
 
 	button = container.getElementsByTagName( 'button' )[0];
+	menuIcon = button.querySelector( '.md-menu' );
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
@@ -34,9 +35,11 @@
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			menuIcon.textContent = 'menu';
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
+			menuIcon.textContent = 'close';
 		}
 	};
 
@@ -47,6 +50,7 @@
 		if ( ! isClickInside ) {
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			menuIcon.textContent = 'menu';
 		}
 	} );
 

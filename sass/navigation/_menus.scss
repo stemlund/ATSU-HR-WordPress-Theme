@@ -122,7 +122,33 @@
   display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: $big-baby-bear) {
+  .menu-top-navigation-for-mobile-container {
+    width: 40%;
+    left: inherit;
+    right: 0;
+    z-index: 9999;
+    font-size: 1.5em;
+  }
+
+  .main-navigation.toggled .menu-top-navigation-for-mobile-container {
+    display: flex;
+    justify-content: flex-end;
+    border: 0;
+    box-shadow: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0;
+    margin: 2.1rem 0 0 0;
+  }
+  .main-navigation.toggled ul {
+    width: 40%;
+    background: #fff;
+  }
+}
+
+@media screen and (min-width: $great-grandpa-bear) {
   .menu-top-navigation-for-mobile-container {
     display: none;
   }
