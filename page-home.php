@@ -95,17 +95,15 @@ get_header();
 					</div>
 
 					<div class="home-administration-block-wrapper">
-						<div class="home-admin-col-1">
-							<div class="admin-col-inner">
-								<h3>ATSU Leadership</h3>
-								<p>We would like a box below with a focus on ATSU leadership (We are thinking President's Cabinet and Deans).  We would like a box below with a focus.</p>
-								<a href="#" class="cta-link">ATSU Leadership<i class="material-icons md-chevron">chevron_right</i></a>
-							</div>	
 						
+						<div class="admin-col-photo">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt="">
 						</div>
 
-						<div class="home-admin-col-2">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt="">
+						<div class="admin-col-text">
+							<h3>ATSU Leadership</h3>
+							<p>We would like a box below with a focus on ATSU leadership (We are thinking President's Cabinet and Deans).  We would like a box below with a focus.</p>
+							<a href="#" class="cta-link">ATSU Leadership<i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 					</div>
 				</div>
