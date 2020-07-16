@@ -83,22 +83,22 @@ get_header();
 							<a href="#" class="cta-link">See all forms<i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 						<div class="home-col">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/treadmills.jpg" alt="">
+						<h3>Still Healthy Videos</h3>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/hI6o-e7ao8k?&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<a href="https://www.youtube.com/playlist?list=PLP3UDRKqVJV_qm5bFtjMsYpl5A6LIyTbW" class="cta-link">See all Still Healthy videos<i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 						<div class="home-col">
 							<h3>Employee Directory</h3>
 							<div class="home-col-inner">
 								<p>Employee directory intro text. We would like to have an employee directory option. Employee directory intro text. We would like to have an employee directory option.</p>
 							</div>
-							<a href="#" class="cta-link">Search Employee Directory <i class="material-icons md-chevron">chevron_right</i></a>
+							<a href="https://www.atsu.edu/directory/public/default.aspx" class="cta-link">Search Employee Directory <i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 					</div>
 
 					<div class="home-administration-block-wrapper">
 						
-						<div class="admin-col-photo">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt="">
-						</div>
+						<div class="admin-col-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt=""></div>
 
 						<div class="admin-col-text">
 							<h3>ATSU Leadership</h3>

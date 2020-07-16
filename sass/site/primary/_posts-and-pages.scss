@@ -54,6 +54,11 @@
 
   .site-main {
     grid-area: main;
+    margin: 0 3rem 0 0;
+  }
+
+  body.home .site-main {
+    margin: 0;
   }
 
   .widget-area {

@@ -1,0 +1,16 @@
+button.accordion-head {
+  width: 100%;
+  padding: 1rem;
+  vertical-align: middle;
+  font-size: 1.2em;
+  display: flex;
+  border-radius: 0;
+  border: 0;
+  margin: 1.5rem 0 0 0;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+button.accordion-head:first-of-type {
+  margin: 0;
+}

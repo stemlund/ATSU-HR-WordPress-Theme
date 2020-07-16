@@ -184,6 +184,8 @@ function atsu_hr_scripts() {
 		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js', null, true);
 	}
 
+	wp_enqueue_script( 'fit-vids', get_template_directory_uri() . '/js/jquery.fitvids.js', array('jquery'), null, true );
+
 	wp_enqueue_script( 'atsu-hr-script', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true  );
 
 	wp_enqueue_script( 'atsu-hr-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
