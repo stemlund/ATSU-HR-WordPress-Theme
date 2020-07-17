@@ -1,4 +1,4 @@
-button.accordion-head {
+.accordion-head {
   width: 100%;
   padding: 1rem;
   vertical-align: middle;
@@ -11,6 +11,11 @@ button.accordion-head {
   cursor: pointer;
 }
 
-button.accordion-head:first-of-type {
+.accordion-head:first-of-type {
   margin: 0;
+}
+
+.accordion-content {
+  /*To prevent jumping when slideDown occurs*/
+  overflow: hidden;
 }

@@ -1011,8 +1011,8 @@ a.cta-link {
   .main-and-widgets-wrapper {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: calc(50vw - 39rem) auto 396px calc(50vw - 39rem);
-        grid-template-columns: calc(50vw - 39rem) auto 396px calc(50vw - 39rem);
+    -ms-grid-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
+        grid-template-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
         grid-template-areas: "pageheading pageheading pageheading pageheading" ". main sidebar .";
   }
   .page-heading {
@@ -1521,6 +1521,12 @@ a.slider-button:hover {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .home-three-cols-wrapper {
+    margin: 3.5rem 0;
+  }
+}
+
 @media screen and (min-width: 1375px) {
   .slider-inner-wrapper {
     margin: 0;
@@ -1610,7 +1616,7 @@ a.slider-button:hover {
   margin: 5rem 0 1.5rem 0;
 }
 
-button.accordion-head {
+.accordion-head {
   width: 100%;
   padding: 1rem;
   vertical-align: middle;
@@ -1627,8 +1633,13 @@ button.accordion-head {
   cursor: pointer;
 }
 
-button.accordion-head:first-of-type {
+.accordion-head:first-of-type {
   margin: 0;
+}
+
+.accordion-content {
+  /*To prevent jumping when slideDown occurs*/
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------

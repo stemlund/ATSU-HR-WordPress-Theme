@@ -24,15 +24,6 @@
 			)
 		);
 		?>
-		<button class="accordion-head">Test content accordion</button>
-		<div class="accordion-content">
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quas, deleniti corrupti neque adipisci assumenda cum quis ut ab sit aspernatur odio veniam aperiam excepturi velit eum dolor? Quia, dolor?</div>
-		
-		<button class="accordion-head">Another Test content accordion</button>
-		<div class="accordion-content">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis unde deserunt voluptatum. Voluptatibus ea repellat debitis quod placeat, corporis non! Facilis labore deleniti commodi eligendi qui eveniet ratione, beatae vero.
-		
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quas, deleniti corrupti neque adipisci assumenda cum quis ut ab sit aspernatur odio veniam aperiam excepturi velit eum dolor? Quia, dolor?</div>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

@@ -400,6 +400,12 @@ a.slider-button {
   }
 }
 
+@media screen and (min-width: $grandpa-bear) {
+  .home-three-cols-wrapper {
+    margin: 3.5rem 0;
+  }
+}
+
 @media screen and (min-width: $great-grandpa-bear) {
   .slider-inner-wrapper {
     margin: 0;
