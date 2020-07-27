@@ -23,7 +23,7 @@ get_header();
                     <?php if (have_rows('accordion-sections')):
                         while (have_rows('accordion-sections')): the_row(); ?>
 
-                        <button class="accordion-head" id="<?php the_sub_field('hash');?>" name="<?php the_sub_field('hash');?>"><?php the_sub_field('heading');?></button>
+                        <button id="<?php the_sub_field('hash');?>" name="<?php the_sub_field('hash');?>" class="accordion-head"><?php the_sub_field('heading');?></button>
                         <div class="accordion-content"><?php the_sub_field('content');?></div>
                     <?php endwhile;
                     else :

@@ -44,43 +44,6 @@ contentAccordionHeader.forEach( function( arrow ) {
 // 	$( contentAccordionHeader ).not( this ).next().slideUp();
 // } );
 
-//the function that goes to the section of the page based on the #______ in the URL
-
-function gotohash() {
-	// the selector
-	var currentTarget = $( '.accordion-head[id$="' + location.hash + '"]' ),
-		offset = { top: 0, left: 0 };
-		// in case we have a hit...
-	if ( currentTarget.length ) {
-		// trigger the click
-		currentTarget.trigger( 'click' );
-		// get current offset (relative to document)
-		// since the element is the question (not the answer with the id)
-		// this will show the question right on top
-		offset = currentTarget.offset();
-		// just in case you'll want to add some extra space do it like this:
-		offset.top -= 80;
-
-		// and let the page scroll to this position
-		$( 'html, body' ).animate( {
-			scrollTop: offset.top,
-			scrollLeft: offset.left,
-		} );
-	}
-}
-
-//allows for linking between accordion panels on the same page
-window.onhashchange = gotohash;
-
-$( 'a[href*="#"]' ).click( function() {
-	gotohash();
-} );
-
-//allows for linking to accordion panels from external webpages
-if ( location.hash ) {
-	gotohash();
-}
-
 $( function() {
 	$( '#accordion' ).accordion( {
 		heightStyle: 'content',
@@ -95,6 +58,45 @@ $( function() {
 			}
 		},
 	} );
+} );
+
+$( document ).ready( function() {
+	//the function that goes to the section of the page based on the #______ in the URL
+
+	function gotohash() {
+	// the selector
+		var currentTarget = $( '.accordion-head[id$="' + location.hash + '"]' ),
+			offset = { top: 0, left: 0 };
+		// in case we have a hit...
+		if ( currentTarget.length ) {
+		// trigger the click
+			currentTarget.trigger( 'click' );
+			// get current offset (relative to document)
+			// since the element is the question (not the answer with the id)
+			// this will show the question right on top
+			offset = currentTarget.offset();
+			// just in case you'll want to add some extra space do it like this:
+			offset.top -= 80;
+
+			// and let the page scroll to this position
+			$( 'html, body' ).animate( {
+				scrollTop: offset.top,
+				scrollLeft: offset.left,
+			} );
+		}
+	}
+
+	//allows for linking between accordion panels on the same page
+	window.onhashchange = gotohash;
+
+	$( 'a[href*="#"]' ).click( function() {
+		gotohash();
+	} );
+
+	//allows for linking to accordion panels from external webpages
+	if ( location.hash ) {
+		gotohash();
+	}
 } );
 
 //FitVids.js
