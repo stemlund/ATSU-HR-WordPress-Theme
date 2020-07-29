@@ -1066,6 +1066,7 @@ a.cta-link {
 .slide {
   width: 100%;
   padding: 2rem 1rem 1.4rem 2rem;
+  background-color: #fff;
 }
 
 .slide p {
@@ -1640,6 +1641,44 @@ a.slider-button:hover {
 .accordion-content {
   /*To prevent jumping when slideDown occurs*/
   overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.button-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.button-grid li {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button-grid li a {
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid #172940;
+  text-decoration: none;
+  color: #172940;
+  width: 100%;
+  text-align: center;
+}
+
+.button-grid li a:hover {
+  background-color: #172940;
+  color: #fff;
 }
 
 .login-button {

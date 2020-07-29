@@ -20,3 +20,16 @@
   background-image: linear-gradient(rgba($color, 0.7), rgba($color, 0.7)),
     url("/wp-content/themes/atsu-hr/img/"+$photo+".jpg");
 }
+
+@mixin hollow-button {
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid $color__dark-blue;
+  text-decoration: none;
+  color: $color__dark-blue;
+}
+
+@mixin hollow-button-hover {
+  background-color: $color__dark-blue;
+  color: #fff;
+}

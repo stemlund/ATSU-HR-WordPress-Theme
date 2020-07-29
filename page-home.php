@@ -11,10 +11,6 @@ get_header();
 ?>
 <div class="main-wrapper">
 	<main id="primary" class="site-main">
-
-
-	
-
 		<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
@@ -24,23 +20,21 @@ get_header();
 					<div class="slider-inner-wrapper">
 						<a href="#" class="slider-button">Now Trending<i class="material-icons md-chevron">chevron_right</i></a>
 						<div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-swipe="true" data-cycle-swipe-fx="scrollHorz" data-cycle-timeout="6000" data-cycle-speed="500" data-cycle-slides="> div">
-							
 							<span class="cycle-pager"></span>
-								<div class="slide">
-										<h2>COVID-19 Resources</h2>
-										<p>Find resources for working from home and precautions we are taking to ensure a safe working environment for all. We update this page weekly with new FAQs.</p>
-										<a href="#" class="primary-button">COVID-19 Resources</a>
-								</div>
-								<div class="slide">
-										<h2>Slide 2 COVID-19 Resources</h2>
-										<p>Find resources for working from home and precautions we are taking to ensure a safe working environment for all. We update this page weekly with new FAQs.</p>
-										<a href="#" class="primary-button">COVID-19 Resources</a>
-								</div>
-								<div class="slide">
-										<h2>Slide 3COVID-19 Resources</h2>
-										<p>Find resources for working from home and precautions we are taking to ensure a safe working environment for all. We update this page weekly with new FAQs.</p>
-										<a href="#" class="primary-button">COVID-19 Resources</a>
-								</div>
+
+							<?php
+							if( have_rows('slider') ):
+								while ( have_rows('slider') ) : the_row(); ?>
+									
+									<div class="slide">
+										<h2><?php the_sub_field('heading');?></h2>
+										<p><?php the_sub_field('content');?></p>
+										<a href="<?php the_sub_field('button_link');?>" class="primary-button"><?php the_sub_field('button_text');?></a>
+									</div>
+								<?php endwhile;
+							else :
+								// no rows found
+							endif; ?>
 						</div> 
 					</div>
 				</div>
@@ -48,7 +42,7 @@ get_header();
 				<div class="resources-grid-wrapper">
 					
 					<div class="resources-grid-inner-wrapper">
-						<h2>Resources <span>at your fingertips</span></h2>
+						<h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2>
 						<ul class="resources-grid">
 							<li class="resources-grid-item"><a href="#" class="item-still-healthy">Still Healthy</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-policies">Policies</a></li>
@@ -69,36 +63,34 @@ get_header();
 				<div class="home-content-wrapper">
 					<div class="home-three-cols-wrapper">
 						<div class="home-col">
-							<h3>Commonly Used Forms</h3>
+							<h3><?php the_field('card_one_heading');?></h3>
 							<div class="home-col-inner">
-								<a href="#" class="hollow-button">Status Form</a>
-								<a href="#" class="hollow-button">Additional Pay Form</a>
-								<a href="#" class="hollow-button">Salary Reduction Agreement</a>
+								<?php the_field('card_one_content');?>
 							</div>
-							<a href="#" class="cta-link">See all forms<i class="material-icons md-chevron">chevron_right</i></a>
+							<a href="<?php the_field('card_one_link');?>" class="cta-link"><?php the_field('card_one_link_text');?><i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 						<div class="home-col">
-						<h3>Still Healthy Videos</h3>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/hI6o-e7ao8k?&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<a href="https://www.youtube.com/playlist?list=PLP3UDRKqVJV_qm5bFtjMsYpl5A6LIyTbW" class="cta-link">See all Still Healthy videos<i class="material-icons md-chevron">chevron_right</i></a>
+						<h3><?php the_field('card_two_heading');?></h3>
+							<?php the_field('card_two_youtube_embed_url');?>
+							<a href="<?php the_field('card_two_link');?>" class="cta-link"><?php the_field('card_two_link_text');?><i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 						<div class="home-col">
-							<h3>Employee Directory</h3>
+							<h3><?php the_field('card_three_heading');?></h3>
 							<div class="home-col-inner">
-								<p>Employee directory intro text. We would like to have an employee directory option. Employee directory intro text. We would like to have an employee directory option.</p>
+								<?php the_field('card_three_text');?>
 							</div>
-							<a href="https://www.atsu.edu/directory/public/default.aspx" class="cta-link">Search Employee Directory <i class="material-icons md-chevron">chevron_right</i></a>
+							<a href="<?php the_field('card_three_link');?>" class="cta-link"><?php the_field('card_three_link_text');?><i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 					</div>
 
 					<div class="home-administration-block-wrapper">
 						
-						<div class="admin-col-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/administration.jpg" alt=""></div>
+						<div class="admin-col-photo"><img src="<?php the_field('administration_photo');?>" alt=""></div>
 
 						<div class="admin-col-text">
-							<h3>ATSU Leadership</h3>
-							<p>We would like a box below with a focus on ATSU leadership (We are thinking President's Cabinet and Deans).  We would like a box below with a focus.</p>
-							<a href="#" class="cta-link">ATSU Leadership<i class="material-icons md-chevron">chevron_right</i></a>
+							<h3><?php the_field('administration_heading');?></h3>
+							<?php the_field('administration_content');?>
+							<a href="<?php the_field('administration_link');?>" class="cta-link"><?php the_field('administration_link_text');?><i class="material-icons md-chevron">chevron_right</i></a>
 						</div>
 					</div>
 				</div>

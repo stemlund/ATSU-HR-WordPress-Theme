@@ -18,4 +18,29 @@
 .accordion-content {
   /*To prevent jumping when slideDown occurs*/
   overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    a {
+      @include hollow-button;
+      width: 100%;
+      text-align: center;
+
+      &:hover {
+        @include hollow-button-hover;
+      }
+    }
+  }
 }

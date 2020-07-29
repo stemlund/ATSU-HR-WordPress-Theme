@@ -27,6 +27,48 @@ if (!current_user_can('administrator') && !is_admin()) {
 }
 }
 
+
+function wpb_mce_buttons_2($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
+
+/*
+* Callback function to filter the MCE settings
+*/
+ 
+function my_mce_before_init_insert_formats( $init_array ) {  
+ 
+	// Define the style_formats array
+	 
+		$style_formats = array(  
+	/*
+	* Each array child is a format with it's own settings
+	* Notice that each array has title, block, classes, and wrapper arguments
+	* Title is the label which will be visible in Formats menu
+	* Block defines what element to wrap selection in
+	* Change 'block' to 'selector' to apply class to existing element you are highlighting (ul, a, etc)
+	* Classes allows you to define CSS classes
+	* Wrapper whether or not to add a new block-level element around any selected elements
+	*/
+			array(  
+				'title' => 'Grid of Buttons',  
+				'selector' => 'ul',  
+				'classes' => 'button-grid',
+				'wrapper' => false,
+				 
+			),  
+		);  
+		// Insert the array, JSON ENCODED, into 'style_formats'
+		$init_array['style_formats'] = json_encode( $style_formats );  
+		 
+		return $init_array;  
+	   
+	} 
+	// Attach callback to 'tiny_mce_before_init' 
+	add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
 /**
  * atsu-hr functions and definitions
  *
@@ -181,8 +223,15 @@ function atsu_hr_scripts() {
 
 	if ( is_page_template( 'page-home.php' ) ) {
 		wp_enqueue_script( 'cycle', get_template_directory_uri() . '/js/cycle/cycle.js', array('jquery'), null, true );
-		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js', null, true);
+		wp_enqueue_script( 'cycle-swipe', get_template_directory_uri() . '/js/cycle/cycle-mobile-swipe.js', array('jquery'), null, true);
 	}
+
+	wp_deregister_script('masonry'); 
+	if ( is_page_template( 'page-content-blocks.php' ) ) {
+		wp_enqueue_script( 'masonry', get_template_directory_uri() . '/js/masonry/masonry.js', array('jquery'), null, true );
+		wp_enqueue_script( 'masonry-settings', get_template_directory_uri() . '/js/masonry/masonry-settings.js', array('jquery'), null, true);
+	}
+
 
 	wp_enqueue_script( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), null, true );
 
