@@ -7,6 +7,9 @@
 
 .site-branding {
   width: 70%;
+  a {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: $great-grandpa-bear) {

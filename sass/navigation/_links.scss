@@ -49,3 +49,69 @@ a {
     padding: 1.5rem;
   }
 }
+
+// .md-pdf-icon {
+//   position: relative;
+//   top: 5px;
+//   right: 5px;
+//   color: darkred;
+// }
+
+// .button-grid li a:hover .md-pdf-icon {
+//   color: #fff;
+// }
+
+a[href$=".pdf"]:after {
+  /* PDF file */
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkred;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: sans-serif;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: content-box;
+  content: "PDF";
+}
+
+a[href$=".doc"]:after,
+a[href$=".docx"]:after {
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkblue;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: sans-serif;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: content-box;
+  content: "DOC";
+}
+
+a[href$=".xls"]:after,
+a[href$=".xlsx"]:after {
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkgreen;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: tahoma, arial, sans-serif;
+  letter-spacing: 0.001em;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: content-box;
+  content: "XLS";
+}

@@ -44,17 +44,17 @@ get_header();
 					<div class="resources-grid-inner-wrapper">
 						<h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2>
 						<ul class="resources-grid">
-							<li class="resources-grid-item"><a href="#" class="item-still-healthy">Still Healthy</a></li>
+							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-still-healthy">Still Healthy</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-policies">Policies</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-handbook">Handbook</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-youtube">Still Healthy <span>YouTube Videos</span></a></li>
+							<li class="resources-grid-item"><a href="https://www.youtube.com/playlist?list=PLP3UDRKqVJV_qm5bFtjMsYpl5A6LIyTbW" class="item-youtube" target="_blank">Still Healthy <span>YouTube Videos</span></a></li>
 							<li class="resources-grid-item"><a href="#" class="item-forms">Forms</a></li>
 							<li class="resources-grid-item "><a href="#" class="item-about-hr">About HR</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-wellness-guides">Wellness Guides</a></li>
+							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-wellness-guides">Wellness Guides</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-fmla">FMLA</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-workplace-injury">Workplace Injury</a></li>
 							<li class="resources-grid-item"><a href="#" class="item-work-study">Work Study</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-employment">Employment <span>Opportunities</span></a></li>
+							<li class="resources-grid-item"><a href="https://recruiting2.ultipro.com/ATS1000ATSU/JobBoard/3cecd56d-0475-4bd9-8534-c2eb468057dd/?q=&o=postedDateDesc&w=&wc=&we=&wpst=" target="_blank" class="item-employment">Employment <span>Opportunities</span></a></li>
 						
 						</ul>
 					</div>

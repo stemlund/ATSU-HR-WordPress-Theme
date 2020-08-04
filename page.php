@@ -15,7 +15,7 @@
 get_header();
 ?>
 <div class="main-and-widgets-wrapper">
-	<div class="page-heading"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></div>
+	<?php get_template_part('template-parts/sub', 'heading'); ?>
 	<main id="primary" class="site-main">
 
 		<?php

@@ -90,3 +90,9 @@ $( document ).ready( function() {
 //FitVids.js
 $( '#primary' ).fitVids();
 
+// //Add icons to links dynamically
+// var pdfLink = document.querySelectorAll( '.main-and-widgets-wrapper a[href$=".pdf"]' );
+
+// pdfLink.forEach( function( arrow ) {
+// 	arrow.insertAdjacentHTML( 'afterbegin', '<i class="material-icons md-pdf-icon">picture_as_pdf</i>' );
+// } );

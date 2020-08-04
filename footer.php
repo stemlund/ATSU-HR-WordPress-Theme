@@ -33,24 +33,22 @@
 				
 			</div>
 			<div class="footer-col footer-col-links">
-				<ul>
-					<li><a href="#">Policies & Handbooks</a></li>
-					<li><a href="#">Payroll</a></li>
-					<li><a href="#">Benefits</a></li>
-					<li><a href="#">UltiPro</a></li>
-					<li><a href="#">Supervisors</a></li>
-					<li><a href="#">Professional Development</a></li>
-					<li><a href="#">Nondiscrimination Policy</a></li>
-				</ul>
+			<?php
+			wp_nav_menu(
+				array(
+					'menu'        => '5',
+				)
+			);
+				?>
 			</div>
 			<div class="footer-col footer-col-links">
-				<ul>
-					<li><a href="https://www.giving.atsu.edu/s/1883/bp19/home.aspx?gid=2&pgid=61" target="_blank">Partners</a></li>
-					<li><a href="https://www.atsu.edu/security-and-emergencies" target="_blank">Security & Emergencies</a></li>
-					<li><a href="https://www.atsu.edu/heerf-grant-cares-act" target="_blank">HEERF Grant/CARES Act</a></li>
-					<li><a href="https://www.atsu.edu/policies/fcoi.htm" target="_blank">Financial Conflict of Interest in Research Policy</a></li>
-					<li><a href="https://www.atsu.edu/student-consumer-information" target="_blank">Student Consumer Information</a></li>
-				</ul>
+			<?php
+			wp_nav_menu(
+				array(
+					'menu'        => '6',
+				)
+			);
+				?>
 
 			</div>
 		</div>

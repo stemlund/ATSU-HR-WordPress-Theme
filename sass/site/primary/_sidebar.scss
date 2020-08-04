@@ -43,8 +43,18 @@
 
 .widget-title {
   font-size: 1rem;
+  color: $color__light-blue;
+  margin: 5rem 0 1.5rem 0;
+}
+
+.widget_saml_login_widget .widget-title {
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+.widget_nav_menu .widget-title {
   text-transform: uppercase;
   color: $color__dark-blue;
+  margin: 0;
 }
 
 .widget_nav_menu > .widget-title {
@@ -55,10 +65,4 @@
 .md-widget-arrow {
   position: relative;
   top: 6px;
-}
-
-.widget:last-of-type .widget-title {
-  color: $color__light-blue;
-  text-transform: unset;
-  margin: 5rem 0 1.5rem 0;
 }

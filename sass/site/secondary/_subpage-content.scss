@@ -22,9 +22,6 @@
 }
 
 .button-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -42,5 +39,42 @@
         @include hollow-button-hover;
       }
     }
+  }
+}
+
+.accordion-content .button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.card .button-grid li a {
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 1.7rem;
+  background-color: $color__light-gray;
+  border-right: 1px solid $color__gray;
+  border-bottom: 1px solid $color__gray;
+  h2 {
+    background-color: $color__mid-gray;
+    color: #000;
+    border-top: 5px solid $color__light-blue;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .card-inner {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (min-width: $great-grandpa-bear) {
+  .card {
+    width: 45.8%;
+    margin-right: 2%;
+    float: left;
   }
 }

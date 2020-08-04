@@ -651,6 +651,64 @@ a.cta-link {
   padding: 1.5rem;
 }
 
+a[href$=".pdf"]:after {
+  /* PDF file */
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkred;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: sans-serif;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  content: "PDF";
+}
+
+a[href$=".doc"]:after,
+a[href$=".docx"]:after {
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkblue;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: sans-serif;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  content: "DOC";
+}
+
+a[href$=".xls"]:after,
+a[href$=".xlsx"]:after {
+  margin: 0 0 2px 10px;
+  padding: 2px 5px;
+  background-color: darkgreen;
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: tahoma, arial, sans-serif;
+  letter-spacing: 0.001em;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  content: "XLS";
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -1007,7 +1065,7 @@ a.cta-link {
   margin: 0 0 1.5em;
 }
 
-@media screen and (min-width: 35rem) {
+@media screen and (min-width: 560px) {
   .main-and-widgets-wrapper {
     display: -ms-grid;
     display: grid;
@@ -1020,14 +1078,36 @@ a.cta-link {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-area: pageheading;
-    background: #f3f3f3;
-    padding: 2.6rem 0;
+    padding: 2.3rem 0;
     margin: 0 0 3rem 0;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: calc(50vw - 39rem) auto calc(50vw - 39rem);
         grid-template-columns: calc(50vw - 39rem) auto calc(50vw - 39rem);
         grid-template-areas: ". pageheadingh1 .";
+  }
+  .subheading1,
+  .subheading2,
+  .subheading3,
+  .subheading4 {
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .subheading1 {
+    background-image: url("img/subhead-001.jpg"), -webkit-gradient(linear, left top, right top, from(#f6f6f6), color-stop(37%, #f6f6f6), color-stop(49%, #f3f3f4));
+    background-image: url("img/subhead-001.jpg"), linear-gradient(90deg, #f6f6f6 0%, #f6f6f6 37%, #f3f3f4 49%);
+  }
+  .subheading2 {
+    background-image: url("img/subhead-002.jpg");
+    background-color: #e1e5ed;
+  }
+  .subheading3 {
+    background-image: url("img/subhead-003.jpg"), -webkit-gradient(linear, left top, right top, from(#f9f9f9), color-stop(37%, #f9f9f9), color-stop(49%, #cbd4e2));
+    background-image: url("img/subhead-003.jpg"), linear-gradient(90deg, #f9f9f9 0%, #f9f9f9 37%, #cbd4e2 49%);
+  }
+  .subheading4 {
+    background-image: url("img/subhead-004.jpg");
+    background-color: #f9f9f9;
   }
   .page-heading h1.entry-title {
     -ms-grid-row: 1;
@@ -1051,6 +1131,12 @@ a.cta-link {
     -ms-grid-row: 2;
     -ms-grid-column: 3;
     grid-area: sidebar;
+  }
+}
+
+@media screen and (min-width: 1375px) {
+  body.page-template-page-content-blocks .site-main {
+    margin: 0;
   }
 }
 
@@ -1597,8 +1683,18 @@ a.slider-button:hover {
 
 .widget-title {
   font-size: 1rem;
+  color: #3687ba;
+  margin: 5rem 0 1.5rem 0;
+}
+
+.widget_saml_login_widget .widget-title {
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+.widget_nav_menu .widget-title {
   text-transform: uppercase;
   color: #172940;
+  margin: 0;
 }
 
 .widget_nav_menu > .widget-title {
@@ -1609,12 +1705,6 @@ a.slider-button:hover {
 .md-widget-arrow {
   position: relative;
   top: 6px;
-}
-
-.widget:last-of-type .widget-title {
-  color: #3687ba;
-  text-transform: unset;
-  margin: 5rem 0 1.5rem 0;
 }
 
 .accordion-head {
@@ -1645,11 +1735,6 @@ a.slider-button:hover {
 }
 
 .button-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1679,6 +1764,46 @@ a.slider-button:hover {
 .button-grid li a:hover {
   background-color: #172940;
   color: #fff;
+}
+
+.accordion-content .button-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.card .button-grid li a {
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 1.7rem;
+  background-color: #fafafa;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.card h2 {
+  background-color: #f3f3f3;
+  color: #000;
+  border-top: 5px solid #3687ba;
+  margin: 0;
+  padding: 1rem;
+}
+
+.card .card-inner {
+  padding: 1.5rem;
+}
+
+@media screen and (min-width: 1375px) {
+  .card {
+    width: 45.8%;
+    margin-right: 2%;
+    float: left;
+  }
 }
 
 .login-button {
@@ -1727,6 +1852,12 @@ a.slider-button:hover {
 
 .site-branding {
   width: 70%;
+}
+
+.site-branding a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media screen and (min-width: 1375px) {

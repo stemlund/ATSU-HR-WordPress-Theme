@@ -22,7 +22,7 @@
   margin: 0 0 1.5em;
 }
 
-@media screen and (min-width: 35rem) {
+@media screen and (min-width: $big-baby-bear) {
   .main-and-widgets-wrapper {
     display: grid;
     grid-template-columns: $size__outer-margins auto 24.75rem $size__outer-margins;
@@ -36,12 +36,49 @@
 
   .page-heading {
     grid-area: pageheading;
-    background: $color__mid-gray;
-    padding: 2.6rem 0;
+    padding: 2.3rem 0;
     margin: 0 0 3rem 0;
     display: grid;
     grid-template-columns: $size__outer-margins auto $size__outer-margins;
     grid-template-areas: ". pageheadingh1 .";
+  }
+
+  .subheading1,
+  .subheading2,
+  .subheading3,
+  .subheading4 {
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .subheading1 {
+    background-image: url("img/subhead-001.jpg"),
+      linear-gradient(
+        90deg,
+        rgba(246, 246, 246, 1) 0%,
+        rgba(246, 246, 246, 1) 37%,
+        rgba(243, 243, 244, 1) 49%
+      );
+  }
+
+  .subheading2 {
+    background-image: url("img/subhead-002.jpg");
+    background-color: #e1e5ed;
+  }
+
+  .subheading3 {
+    background-image: url("img/subhead-003.jpg"),
+      linear-gradient(
+        90deg,
+        rgba(249, 249, 249, 1) 0%,
+        rgba(249, 249, 249, 1) 37%,
+        rgba(203, 212, 226, 1) 49%
+      );
+  }
+
+  .subheading4 {
+    background-image: url("img/subhead-004.jpg");
+    background-color: #f9f9f9;
   }
 
   .page-heading h1.entry-title {
@@ -63,5 +100,11 @@
 
   .widget-area {
     grid-area: sidebar;
+  }
+}
+
+@media screen and (min-width: $great-grandpa-bear) {
+  body.page-template-page-content-blocks .site-main {
+    margin: 0;
   }
 }

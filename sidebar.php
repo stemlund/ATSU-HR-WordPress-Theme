@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area">
-	<h2 class="sidebar-head"><?php the_title(); ?> at a Glance</h2>
+	<h2 class="sidebar-head"><?php the_title(); ?> at a glance</h2>
 	<div class="widget-area-inner">
 		<ul>
 			<li>Link 0</li>
@@ -22,8 +22,14 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			<li>Link 3</li>
 			<li>Link 4</li>
 			<li>Link 5</li>
-		</ul>	
+		</ul>
+			
+		<?php 
+
+		//Add separate sidebar that has 'at a glance' menu and also 'related resources menu'
+		//dynamic_sidebar( 'sidebar-2' ); 
 		
+		?>
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </aside><!-- #secondary -->
