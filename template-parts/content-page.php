@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
 
 	<?php atsu_hr_post_thumbnail(); ?>
-
+	<?php get_template_part('template-parts/subpage', 'toc'); ?>
 	<div class="entry-content">
 		<?php
 		the_content();

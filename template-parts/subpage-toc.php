@@ -1,0 +1,1 @@
+<a href="#toc" class="subpage-toc-button"><?php the_title(); ?> at a glance <i class="material-icons md-toc-menu">menu</i></a>

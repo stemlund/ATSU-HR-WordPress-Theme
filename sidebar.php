@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area">
-	<h2 class="sidebar-head"><?php the_title(); ?> at a glance</h2>
+	<h2 class="sidebar-head"><a name="toc"></a><?php the_title(); ?> at a glance</h2>
 	<div class="widget-area-inner">
 		<ul>
 			<li>Link 0</li>

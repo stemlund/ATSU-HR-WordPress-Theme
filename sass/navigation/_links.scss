@@ -22,14 +22,10 @@ a {
   }
 
   &.primary-button {
-    background-color: $color__light-blue;
-    border-radius: 5px;
-    padding: 6px 30px 8px 25px;
-    color: #fff;
-    text-decoration: none;
+    @include primary-button;
 
     &:hover {
-      background-color: $color__dark-blue;
+      @include primary-button-hover;
     }
   }
   &.hollow-button {
@@ -114,4 +110,24 @@ a[href$=".xlsx"]:after {
   display: inline-block;
   box-sizing: content-box;
   content: "XLS";
+}
+
+.subpage-toc-button {
+  @include primary-button;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    @include primary-button-hover;
+    color: #fff;
+  }
+}
+
+@media screen and (min-width: $papa-bear) {
+  .subpage-toc-button {
+    display: none;
+  }
 }

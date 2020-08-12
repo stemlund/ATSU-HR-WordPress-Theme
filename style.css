@@ -709,6 +709,34 @@ a[href$=".xlsx"]:after {
   content: "XLS";
 }
 
+.subpage-toc-button {
+  background-color: #3687ba;
+  border-radius: 5px;
+  padding: 6px 30px 8px 25px;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 0 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.subpage-toc-button:hover {
+  background-color: #172940;
+  color: #fff;
+}
+
+@media screen and (min-width: 1060px) {
+  .subpage-toc-button {
+    display: none;
+  }
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -1065,21 +1093,28 @@ a[href$=".xlsx"]:after {
   margin: 0 0 1.5em;
 }
 
+.page-heading {
+  padding: 1.5rem 0;
+  margin: 0 0 1.5rem 0;
+  background-color: #f3f3f3;
+}
+
+.page-heading h1.entry-title {
+  color: #172940;
+  font-weight: 400;
+  font-size: 2.3em;
+}
+
+.page-heading h1.entry-title,
+.site-main,
+.widget-area {
+  margin: 0 1.5rem;
+}
+
 @media screen and (min-width: 560px) {
-  .main-and-widgets-wrapper {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
-        grid-template-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
-        grid-template-areas: "pageheading pageheading pageheading pageheading" ". main sidebar .";
-  }
   .page-heading {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 4;
-    grid-area: pageheading;
     padding: 2.3rem 0;
-    margin: 0 0 3rem 0;
+    grid-area: pageheading;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: calc(50vw - 39rem) auto calc(50vw - 39rem);
@@ -1113,24 +1148,41 @@ a[href$=".xlsx"]:after {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: pageheadingh1;
-    margin: 0;
-    color: #172940;
-    font-weight: 400;
-    font-size: 2.3em;
   }
   .site-main {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
     grid-area: main;
-    margin: 0 3rem 0 0;
+  }
+  .widget-area {
+    grid-area: sidebar;
   }
   body.home .site-main {
     margin: 0;
   }
+}
+
+@media screen and (min-width: 1060px) {
+  .main-and-widgets-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
+        grid-template-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
+        grid-template-areas: "pageheading pageheading pageheading pageheading" ". main sidebar .";
+  }
+  .page-heading h1.entry-title,
   .widget-area {
-    -ms-grid-row: 2;
-    -ms-grid-column: 3;
-    grid-area: sidebar;
+    margin: 0;
+  }
+  .page-heading {
+    margin: 0 0 3rem 0;
+  }
+  .site-main {
+    margin: 0 3rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .page-heading h1.entry-title {
+    margin: 0;
   }
 }
 

@@ -33,3 +33,15 @@
   background-color: $color__dark-blue;
   color: #fff;
 }
+
+@mixin primary-button {
+  background-color: $color__light-blue;
+  border-radius: 5px;
+  padding: 6px 30px 8px 25px;
+  color: #fff;
+  text-decoration: none;
+}
+
+@mixin primary-button-hover {
+  background-color: $color__dark-blue;
+}

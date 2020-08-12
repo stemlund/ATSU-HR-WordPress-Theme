@@ -17,7 +17,8 @@ get_header();
             the_post(); ?>
             
             <article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
-
+                
+                <?php get_template_part('template-parts/subpage', 'toc'); ?>
                 <div class="entry-content masonry-wrapper">
                     
                     <?php if (have_rows('content-blocks')):
