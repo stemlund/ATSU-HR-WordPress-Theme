@@ -495,6 +495,11 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
+.entry-content ul,
+.entry-content ol {
+  margin: 0 0 1.5em 0.2em;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -788,7 +793,7 @@ a[href$=".xlsx"]:after {
 }
 
 .main-navigation ul ul {
-  width: 15rem;
+  width: 17rem;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
@@ -1768,7 +1773,10 @@ a.slider-button:hover {
   display: -ms-flexbox;
   display: flex;
   border-radius: 0;
-  border: 0;
+  border-top: 0;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  border-left: 5px solid #3687ba;
   margin: 1.5rem 0 0 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -1856,24 +1864,6 @@ a.slider-button:hover {
     margin-right: 2%;
     float: left;
   }
-}
-
-.login-button {
-  width: 100vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.login-button img {
-  padding: 0 2rem;
 }
 
 /*--------------------------------------------------------------

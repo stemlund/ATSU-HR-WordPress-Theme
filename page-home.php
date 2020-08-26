@@ -18,7 +18,7 @@ get_header();
 			<div class="entry-content">
 				<div class="slider-wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/ipe-building-bg.jpg);">
 					<div class="slider-inner-wrapper">
-						<a href="#" class="slider-button">Now Trending<i class="material-icons md-chevron">chevron_right</i></a>
+						<a href="/now-trending/" class="slider-button">Now Trending<i class="material-icons md-chevron">chevron_right</i></a>
 						<div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-swipe="true" data-cycle-swipe-fx="scrollHorz" data-cycle-timeout="6000" data-cycle-speed="500" data-cycle-slides="> div">
 							<span class="cycle-pager"></span>
 
@@ -45,15 +45,15 @@ get_header();
 						<h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2>
 						<ul class="resources-grid">
 							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-still-healthy">Still Healthy</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-policies">Policies</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-handbook">Handbook</a></li>
+							<li class="resources-grid-item"><a href="/atsu-policies-manual/" class="item-policies">Policies</a></li>
+							<li class="resources-grid-item"><a href="/policies-handbooks/#handbooks" class="item-handbook">Handbook</a></li>
 							<li class="resources-grid-item"><a href="https://www.youtube.com/playlist?list=PLP3UDRKqVJV_qm5bFtjMsYpl5A6LIyTbW" class="item-youtube" target="_blank">Still Healthy <span>YouTube Videos</span></a></li>
-							<li class="resources-grid-item"><a href="#" class="item-forms">Forms</a></li>
-							<li class="resources-grid-item "><a href="#" class="item-about-hr">About HR</a></li>
+							<li class="resources-grid-item"><a href="/forms/" class="item-forms">Forms</a></li>
+							<li class="resources-grid-item "><a href="/about-hr/" class="item-about-hr">About HR</a></li>
 							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-wellness-guides">Wellness Guides</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-fmla">FMLA</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-workplace-injury">Workplace Injury</a></li>
-							<li class="resources-grid-item"><a href="#" class="item-work-study">Work Study</a></li>
+							<li class="resources-grid-item"><a href="/fmla/" class="item-fmla">FMLA</a></li>
+							<li class="resources-grid-item"><a href="/workplace-injury/" class="item-workplace-injury">Workplace Injury</a></li>
+							<li class="resources-grid-item"><a href="/policies-handbooks/#handbooks" class="item-work-study">Work-Study</a></li>
 							<li class="resources-grid-item"><a href="https://recruiting2.ultipro.com/ATS1000ATSU/JobBoard/3cecd56d-0475-4bd9-8534-c2eb468057dd/?q=&o=postedDateDesc&w=&wc=&we=&wpst=" target="_blank" class="item-employment">Employment <span>Opportunities</span></a></li>
 						
 						</ul>

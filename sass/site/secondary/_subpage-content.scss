@@ -5,7 +5,10 @@
   font-size: 1.2em;
   display: flex;
   border-radius: 0;
-  border: 0;
+  border-top: 0;
+  border-right: 1px solid $color__gray;
+  border-bottom: 1px solid $color__gray;
+  border-left: 5px solid $color__light-blue;
   margin: 1.5rem 0 0 0;
   justify-content: space-between;
   cursor: pointer;

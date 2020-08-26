@@ -5,8 +5,8 @@ ItemWithSubMenu.forEach( function( arrow ) {
 } );
 
 //Sidebar Accordions
-
-var widgetAccordionHeader = document.querySelectorAll( '.widget_nav_menu > .widget-title' );
+//Target all but first navigation menu so that first menu in sidebar is not collapsed
+var widgetAccordionHeader = document.querySelectorAll( '.widget_nav_menu + .widget_nav_menu > .widget-title' );
 
 widgetAccordionHeader.forEach( function( arrow ) {
 	arrow.insertAdjacentHTML( 'afterbegin', '<i class="material-icons md-widget-arrow">expand_more</i>' );

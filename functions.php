@@ -3,16 +3,10 @@
 /*Require login to view the website*/
 function atsu_hr_login_required() {
 	/* If users is not logged in and they aren't on the login page (page id of 7) */
-	if ( !is_user_logged_in() && !is_page(7) ) {
-		/* Then redirect to the login page
-		May need to switch back to wp_redirect if needing to use an external SAML URL */
-		wp_safe_redirect( get_permalink( 7 ) );
+	if ( !is_user_logged_in() ) {
+		/* Then redirect to the login page but set a redirect for after logging in to the URL they landed on*/
+		echo '<div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;"><a href="http://hr.atsu.edu/?option=saml_user_login&mepr-unauth-page=' . get_the_ID() . '&redirect_to=' . $_SERVER["REQUEST_URI"] . '"><img style="padding: 0 2rem;" src="http://hr.atsu.edu/wp-content/themes/atsu-hr/img/hr-login-button.svg"></a></div>';
 		exit;
-	}
-
-	/* After user logs in, it will send them back to the login page, but this code sends them back to the homepage after logging */
-	if ( is_user_logged_in() && is_page(7) ) {
-		wp_safe_redirect( home_url() );
 	}
 }
 add_action( 'template_redirect', 'atsu_hr_login_required' );
@@ -193,20 +187,50 @@ add_action( 'after_setup_theme', 'atsu_hr_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function atsu_hr_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'atsu-hr' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'atsu-hr' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+// function atsu_hr_widgets_init() {
+// 	register_sidebar(
+// 		array(
+// 			'name'          => esc_html__( 'Sidebar', 'atsu-hr' ),
+// 			'id'            => 'sidebar-1',
+// 			'description'   => esc_html__( 'Add widgets here.', 'atsu-hr' ),
+// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+// 			'after_widget'  => '</section>',
+// 			'before_title'  => '<h2 class="widget-title">',
+// 			'after_title'   => '</h2>',
+// 		)
+// 	);
+// }
+// add_action( 'widgets_init', 'atsu_hr_widgets_init' );
+
+
+/* Better way to add multiple widgets areas */
+function widget_registration($name, $id, $description, $beforeWidget, $afterWidget, $beforeTitle, $afterTitle) {
+    register_sidebar( array(
+        'name' => $name,
+        'id' => $id,
+        'description' => $description,
+        'before_widget' => $beforeWidget,
+        'after_widget' => $afterWidget,
+        'before_title' => $beforeTitle,
+        'after_title' => $afterTitle,
+    ));
 }
-add_action( 'widgets_init', 'atsu_hr_widgets_init' );
+ 
+function multiple_widget_init(){
+    widget_registration('Sidebar', 'sidebar-1', 'Widgets appearing on all pages go here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('About HR Sidebar', 'about-hr-sidebar', 'About HR widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Policies Sidebar', 'policies-sidebar', 'Policies widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Benefits Sidebar', 'benefits-sidebar', 'Benefits widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('FMLA Sidebar', 'fmla-sidebar', 'FMLA widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Forms Sidebar', 'forms-sidebar', 'Forms widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Payroll Sidebar', 'payroll-sidebar', 'Payroll widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Policies & Handbooks Sidebar', 'policies-handbooks-sidebar', 'Policies & Handbooks widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Professional Development Sidebar', 'professional-development-sidebar', 'Professional Development widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Supervisors Sidebar', 'supervisors-sidebar', 'Supervisors widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('UltiPro Sidebar', 'ultipro-sidebar', 'UltiPro widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+}
+ 
+add_action('widgets_init', 'multiple_widget_init');
 
 /**
  * Enqueue scripts and styles.
