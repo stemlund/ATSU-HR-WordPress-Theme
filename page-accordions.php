@@ -18,17 +18,19 @@ get_header();
             
             <article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
                 <?php get_template_part('template-parts/subpage', 'toc'); ?>
-                <div class="entry-content" id="accordion">
-                    
-                    <?php if (have_rows('accordion-sections')):
-                        while (have_rows('accordion-sections')): the_row(); ?>
 
-                        <button id="<?php the_sub_field('hash');?>" name="<?php the_sub_field('hash');?>" class="accordion-head"><?php the_sub_field('heading');?></button>
-                        <div class="accordion-content"><?php the_sub_field('content');?></div>
-                    <?php endwhile;
-                    else :
-                    endif; ?>
-                
+                <div class="entry-content">
+                    <?php the_content(); ?>
+                    <div id="accordion">
+                        <?php if (have_rows('accordion-sections')):
+                            while (have_rows('accordion-sections')): the_row(); ?>
+
+                            <button id="<?php the_sub_field('hash');?>" name="<?php the_sub_field('hash');?>" class="accordion-head"><?php the_sub_field('heading');?></button>
+                            <div class="accordion-content"><?php the_sub_field('content');?></div>
+                        <?php endwhile;
+                        else :
+                        endif; ?>
+                    </div>
                     
                 </div><!-- .entry-content -->
 

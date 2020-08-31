@@ -26,7 +26,7 @@ $( widgetAccordionHeader ).click( function() {
 
 //Content Accordions
 
-var contentAccordionHeader = document.querySelectorAll( '.entry-content > .accordion-head' );
+var contentAccordionHeader = document.querySelectorAll( '#accordion > .accordion-head' );
 
 contentAccordionHeader.forEach( function( arrow ) {
 	arrow.insertAdjacentHTML( 'beforeend', '<i class="material-icons md-content-arrow">expand_more</i>' );

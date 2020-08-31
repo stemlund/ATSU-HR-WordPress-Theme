@@ -45,10 +45,15 @@
   }
 }
 
-.accordion-content .button-grid {
+.accordion-content .button-grid,
+.entry-content .button-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.entry-content .card .button-grid {
+  display: block;
 }
 
 .card .button-grid li a {

@@ -660,8 +660,8 @@ a[href$=".pdf"]:after {
   /* PDF file */
   margin: 0 0 2px 10px;
   padding: 2px 5px;
-  background-color: darkred;
-  color: #fff;
+  background-color: #eee;
+  color: darkred;
   border: 0.1rem solid #fff;
   border-radius: 5px;
   font-size: 10px;
@@ -679,8 +679,8 @@ a[href$=".doc"]:after,
 a[href$=".docx"]:after {
   margin: 0 0 2px 10px;
   padding: 2px 5px;
-  background-color: darkblue;
-  color: #fff;
+  background-color: #eee;
+  color: darkblue;
   border: 0.1rem solid #fff;
   border-radius: 5px;
   font-size: 10px;
@@ -698,8 +698,8 @@ a[href$=".xls"]:after,
 a[href$=".xlsx"]:after {
   margin: 0 0 2px 10px;
   padding: 2px 5px;
-  background-color: darkgreen;
-  color: #fff;
+  background-color: #eee;
+  color: darkgreen;
   border: 0.1rem solid #fff;
   border-radius: 5px;
   font-size: 10px;
@@ -1826,12 +1826,17 @@ a.slider-button:hover {
   color: #fff;
 }
 
-.accordion-content .button-grid {
+.accordion-content .button-grid,
+.entry-content .button-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.entry-content .card .button-grid {
+  display: block;
 }
 
 .card .button-grid li a {
