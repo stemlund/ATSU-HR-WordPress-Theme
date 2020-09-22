@@ -42,12 +42,12 @@
 				?>
 				
 			<?php
-			wp_nav_menu(
-				array(
-					'menu'        => '4',
-					'menu_class'	 => 'menu-mobile',
-				)
-			);
+			// wp_nav_menu(
+			// 	array(
+			// 		'menu'        => '4',
+			// 		'menu_class'	 => 'menu-mobile',
+			// 	)
+			// );
 				?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

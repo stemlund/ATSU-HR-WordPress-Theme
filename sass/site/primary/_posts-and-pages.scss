@@ -113,6 +113,13 @@
       ". main sidebar .";
   }
 
+  body.page-template-page-content-blocks-no-sidebar .main-and-widgets-wrapper,
+  body.page-template-page-abouthr .main-and-widgets-wrapper {
+    grid-template-areas:
+      "pageheading pageheading pageheading pageheading"
+      ". main main .";
+  }
+
   .page-heading h1.entry-title,
   .widget-area {
     margin: 0;
@@ -122,6 +129,11 @@
   }
   .site-main {
     margin: 0 3rem 0 0;
+  }
+
+  body.page-template-page-content-blocks-no-sidebar .site-main,
+  body.page-template-page-abouthr .site-main {
+    margin: 0;
   }
 }
 

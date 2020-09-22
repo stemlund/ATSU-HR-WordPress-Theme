@@ -13,16 +13,22 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area">
-	<h2 class="sidebar-head"><a name="toc"></a><?php the_title(); ?> at a glance</h2>
+		<?php 
+		// If on HR Policies page, adjust sidebar heading to read something different so the sidebar heading/nav make sense
+		if (is_page(644)) { ?>
+			<h2 class="sidebar-head"><a name="toc"></a>ATSU Policies at a glance</h2>
+		<?php } else { ?>
+			<h2 class="sidebar-head"><a name="toc"></a><?php the_title(); ?> at a glance</h2>
+		<?php } ?>
 	<div class="widget-area-inner">
 		<?php
-		/*About HR*/
-		if (is_page(280)) {
-			dynamic_sidebar( 'about-hr-sidebar' );
-		}
 		/*Policies Manual*/
-		elseif (is_page(19)) {
+		if (is_page(19)) {
 			dynamic_sidebar( 'policies-sidebar' );
+		}
+		/*HR Policies Manual*/
+		if (is_page(644)) {
+			dynamic_sidebar( 'hr-policies-sidebar' );
 		}
 		/*Benefits*/
 		elseif (is_page(20)) {
@@ -55,6 +61,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		/*UltiPro*/
 		elseif (is_page(25)) {
 			dynamic_sidebar( 'ultipro-sidebar' );
+		}
+		/*Workplace Injury*/
+		elseif (is_page(351)) {
+			dynamic_sidebar( 'workplace-injury-sidebar' );
 		}
 		else {
 			/*Does not match any pages above so show no menus.*/

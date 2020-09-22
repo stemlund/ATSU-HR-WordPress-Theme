@@ -9,33 +9,89 @@
   width: 70%;
   a {
     display: flex;
+    align-items: center;
+    img {
+      height: 57px;
+      width: 323px;
+    }
   }
 }
 
-@media screen and (min-width: $great-grandpa-bear) {
+@media screen and (min-width: $little-papa-bear) {
   .site-header {
-    display: grid;
-    grid-template-columns: $size__outer-margins 387px 1fr; //used to be auto instead of 1fr but the mobile-version of .site-header f'd it up
-    grid-template-areas: ". site-branding site-nav";
-    justify-content: flex-start; //reset
-    align-items: stretch; //reset
-    padding: 0; //reset
+    flex-direction: column;
+    padding: 0;
   }
 
   .site-branding,
   .main-navigation {
     display: flex;
+    justify-content: center;
   }
 
   .site-branding {
-    grid-area: site-branding;
-    min-height: 129px;
-    width: auto;
+    padding: 1.5rem 0;
+    width: 100%;
   }
 
   .main-navigation {
-    grid-area: site-nav;
     background-color: $color__dark-blue;
     width: 100%;
+    height: 4rem;
+  }
+
+  @supports (display: grid) {
+    .site-header {
+      display: grid;
+      grid-template-columns: $size__outer-margins 1fr $size__outer-margins;
+      grid-template-areas:
+        ". site-branding ."
+        "site-nav site-nav site-nav";
+      justify-content: flex-start; //reset
+      align-items: stretch; //reset
+    }
+    .site-branding {
+      width: auto;
+      // min-height: 129px;
+      grid-area: site-branding;
+      justify-content: center;
+    }
+
+    .main-navigation {
+      grid-area: site-nav;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: $great-grandpa-bear) {
+  .site-header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; //reset
+    padding: 0; //reset
+  }
+
+  .site-branding {
+    justify-content: start;
+    width: 29rem;
+    margin: 0 2rem 0 8rem;
+  }
+
+  .main-navigation {
+    height: auto;
+    justify-content: start;
+  }
+
+  @supports (display: grid) {
+    .site-header {
+      display: grid;
+      grid-template-columns: $size__outer-margins 387px 1fr; //used to be auto instead of 1fr but the mobile-version of .site-header f'd it up
+      grid-template-areas: ". site-branding site-nav";
+    }
+
+    .site-branding {
+      margin: 0;
+    }
   }
 }

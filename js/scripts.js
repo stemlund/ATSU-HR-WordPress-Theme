@@ -1,3 +1,15 @@
+'use strict';
+
+//forEach polyfill for IE
+if ( window.NodeList && ! NodeList.prototype.forEach ) {
+	NodeList.prototype.forEach = function( callback, thisArg ) {
+		thisArg = thisArg || window;
+		for ( var i = 0; i < this.length; i++ ) {
+			callback.call( thisArg, this[i], i, this );
+		}
+	};
+}
+
 var ItemWithSubMenu = document.querySelectorAll( '.menu-item-has-children > a' );
 
 ItemWithSubMenu.forEach( function( arrow ) {
@@ -75,9 +87,11 @@ $( document ).ready( function() {
 	}
 
 	//allows for linking between accordion panels on the same page
+	//commented this out because it broke top nav expanding menus if current URL included a hash URL (/benefits/#stillhealthy)
+	//if I needed this, I could change a[href*="#"] to target just those links within the main content or within accordion sections
 	window.onhashchange = gotohash;
 
-	$( 'a[href*="#"]' ).click( function() {
+	$( '.main-and-widgets-wrapper a[href*="#"]' ).click( function() {
 		gotohash();
 	} );
 
@@ -96,3 +110,53 @@ $( '#primary' ).fitVids();
 // pdfLink.forEach( function( arrow ) {
 // 	arrow.insertAdjacentHTML( 'afterbegin', '<i class="material-icons md-pdf-icon">picture_as_pdf</i>' );
 // } );
+
+//mobile menu accordions
+
+var topNavHeader = document.querySelectorAll( '#primary-menu > li > a' );
+
+function mobileSlideToggle( event ) {
+	event.preventDefault();
+	$( this ).next().slideToggle( 'swing', function() {
+		$( this ).prev().attr( 'aria-expanded', $( this ).prev().attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+		$( this ).attr( 'aria-hidden', $( this ).attr( 'aria-hidden' ) === 'true' ? 'false' : 'true' );
+	} );
+	$( topNavHeader ).not( this ).next().slideUp();
+}
+
+var isMobile = window.matchMedia( '(max-width: 930px)' );
+
+// Define a callback function for the event listener.
+function handleMediaQueryChange( e ) {
+	if ( e.matches ) {
+		//hide submenus by default
+		$( topNavHeader ).next().hide();
+		$( topNavHeader ).attr( 'aria-expanded', 'false' );
+		$( topNavHeader ).next().attr( 'aria-hidden', 'true' );
+
+		//.off('click') prevents multiple click triggers after resizing browser more than once
+		$( topNavHeader ).off( 'click' ).on( 'click', mobileSlideToggle );
+	} else {
+		//reset submenu styles so they are 'shown', albeit offscreen via CSS until hovered on desktop
+		$( topNavHeader ).next().show();
+		$( topNavHeader ).off( 'click', mobileSlideToggle );
+
+		var topNavWrapper = document.querySelector( '.main-navigation' );
+
+		//allow nav styles to snap back to desktop styles if a menu is expanded
+		if ( topNavWrapper.classList.contains( 'toggled' ) ) {
+			topNavWrapper.classList.remove( 'toggled' );
+		}
+		//reset mobile menu icon to menu icon from X
+		var menuIcon = document.querySelector( '.menu-toggle .md-menu' );
+		if ( menuIcon.textContent = 'close' ) {
+			menuIcon.textContent = 'menu';
+		}
+	}
+}
+
+// Run the isMobile change handler once.
+handleMediaQueryChange( isMobile );
+
+// Add the callback function as a listener to the query list.
+isMobile.addEventListener( 'change', handleMediaQueryChange );

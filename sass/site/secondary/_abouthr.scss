@@ -1,0 +1,57 @@
+// body.page-template-page-abouthr .main-and-widgets-wrapper {
+//   grid-template-areas:
+//     "pageheading pageheading pageheading pageheading"
+//     ". main main .";
+// }
+
+#staff {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 1.5rem;
+}
+
+.staff-person {
+  background-color: $color__light-gray;
+  padding: 1.5rem;
+  @include card;
+
+  h2,
+  h3 {
+    color: $color__mid-blue;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+}
+
+.staff-photo {
+  border: 10px solid $color__mid-gray;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  img {
+    max-width: 140px;
+  }
+}
+
+.staff-contact {
+  padding: 1.5rem 0;
+  i {
+    font-size: 16px;
+    padding: 0 0.5rem 0 0;
+    color: $color__light-blue;
+  }
+  p {
+    margin: 0;
+    padding: 0.2rem 0;
+  }
+}
+
+@media screen and (min-width: $mama-bear) {
+  .staff-photo {
+    float: right;
+  }
+}

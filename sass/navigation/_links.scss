@@ -70,7 +70,7 @@ a[href$=".pdf"]:after {
   font-family: sans-serif;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline; /* to prevent icon from line breaking*/
   box-sizing: content-box;
   content: "PDF";
 }
@@ -88,9 +88,9 @@ a[href$=".docx"]:after {
   font-family: sans-serif;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline; /* to prevent icon from line breaking*/
   box-sizing: content-box;
-  content: "DOC";
+  content: "DOCX";
 }
 
 a[href$=".xls"]:after,
@@ -107,7 +107,7 @@ a[href$=".xlsx"]:after {
   letter-spacing: 0.001em;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline; /* to prevent icon from line breaking*/
   box-sizing: content-box;
   content: "XLS";
 }

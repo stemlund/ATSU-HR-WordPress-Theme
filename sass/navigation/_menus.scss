@@ -1,14 +1,24 @@
-.menu-top-navigation-container {
-  display: none;
+// .menu-top-navigation-container {
+//   display: none;
+// }
+
+.main-navigation.toggled ul {
+  padding: 1.5rem 3rem;
+  width: 100%;
+  background: #fff;
 }
 
-.menu-top-navigation-for-mobile-container {
+.main-navigation.toggled ul ul {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.main-navigation.toggled .menu-top-navigation-container {
   position: absolute;
   width: 100%;
   left: 0;
   background: white;
   z-index: 9999;
-  text-align: center;
   font-size: 6vw;
   margin-top: 1rem;
 
@@ -17,7 +27,7 @@
   }
 }
 
-.main-navigation.toggled .menu-top-navigation-for-mobile-container {
+.main-navigation.toggled .menu-top-navigation-container {
   border-bottom: 2px solid $color__mid-blue;
   border-top: 2px solid $color__mid-blue;
   padding: 1rem 0;
@@ -44,12 +54,9 @@
 
     ul {
       width: 17rem;
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
       background-color: #fff;
-      float: left;
-      position: absolute;
       top: 100%;
       left: -999em;
       z-index: 99999;
@@ -65,7 +72,7 @@
         &:hover > ul,
         &.focus > ul {
           display: block;
-          left: auto;
+          left: 0; /*auto before realizing it breaks in IE*/
         }
 
         a {
@@ -87,7 +94,7 @@
     }
     li:hover > ul,
     li.focus > ul {
-      left: auto;
+      left: 0; /*auto before realizing it breaks in IE*/
     }
   }
 
@@ -105,7 +112,6 @@
   }
 
   a {
-    display: block;
     text-decoration: none;
   }
 
@@ -122,8 +128,19 @@
   display: block;
 }
 
+.main-navigation.toggled ul li a {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $color__gray;
+}
+
+.main-navigation.toggled ul ul li a {
+  display: block;
+  border-bottom: 0px;
+}
+
 @media screen and (min-width: $big-baby-bear) {
-  .menu-top-navigation-for-mobile-container {
+  .main-navigation.toggled .menu-top-navigation-container {
     width: 40%;
     left: inherit;
     right: 0;
@@ -131,28 +148,19 @@
     font-size: 1.5em;
   }
 
-  .main-navigation.toggled .menu-top-navigation-for-mobile-container {
+  .main-navigation.toggled .menu-top-navigation-container {
     display: flex;
     justify-content: flex-end;
     border: 0;
     box-shadow: none;
     width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 0;
     margin: 2.1rem 0 0 0;
   }
-  .main-navigation.toggled ul {
-    width: 40%;
-    background: #fff;
-  }
 }
 
-@media screen and (min-width: $great-grandpa-bear) {
-  .menu-top-navigation-for-mobile-container {
-    display: none;
-  }
-
+@media screen and (min-width: $little-papa-bear) {
   .menu-toggle {
     display: none;
   }
@@ -160,6 +168,7 @@
   .menu-top-navigation-container {
     display: flex;
     align-items: stretch;
+    font-size: inherit;
   }
 
   .main-navigation ul {
@@ -187,6 +196,11 @@
 
     .sub-menu li a:hover {
       background-color: $color__gray;
+    }
+
+    ul {
+      position: absolute;
+      float: left;
     }
   }
 
@@ -232,4 +246,7 @@
     text-align: end;
     flex: 1 0 50%;
   }
+}
+
+@media screen and (min-width: $great-grandpa-bear) {
 }

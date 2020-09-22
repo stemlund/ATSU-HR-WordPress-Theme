@@ -19,7 +19,7 @@
 	}
 
 	// menu = container.getElementsByTagName( 'ul' )[0];
-	menu = container.querySelector( '.menu-mobile' );
+	menu = container.querySelector( '.menu-desktop' );
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -87,31 +87,31 @@
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	( function() {
-		var touchStartFn,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+	// ( function() {
+	// 	var touchStartFn,
+	// 		parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
-		if ( 'ontouchstart' in window ) {
-			touchStartFn = function( e ) {
-				var menuItem = this.parentNode;
+	// 	if ( 'ontouchstart' in window ) {
+	// 		touchStartFn = function( e ) {
+	// 			var menuItem = this.parentNode;
 
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem === menuItem.parentNode.children[i] ) {
-							continue;
-						}
-						menuItem.parentNode.children[i].classList.remove( 'focus' );
-					}
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
-			};
+	// 			if ( ! menuItem.classList.contains( 'focus' ) ) {
+	// 				e.preventDefault();
+	// 				for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+	// 					if ( menuItem === menuItem.parentNode.children[i] ) {
+	// 						continue;
+	// 					}
+	// 					menuItem.parentNode.children[i].classList.remove( 'focus' );
+	// 				}
+	// 				menuItem.classList.add( 'focus' );
+	// 			} else {
+	// 				menuItem.classList.remove( 'focus' );
+	// 			}
+	// 		};
 
-			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
-			}
-		}
-	}( container ) );
+	// 		for ( i = 0; i < parentLink.length; ++i ) {
+	// 			parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+	// 		}
+	// 	}
+	// }( container ) );
 }() );

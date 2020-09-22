@@ -45,3 +45,10 @@
 @mixin primary-button-hover {
   background-color: $color__dark-blue;
 }
+
+@mixin card {
+  border-right: 1px solid $color__gray;
+  border-bottom: 1px solid $color__gray;
+  border-top: 5px solid $color__light-blue;
+  background-color: $color__light-gray;
+}

@@ -1,0 +1,42 @@
+.button-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.button-grid li {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.button-grid li a {
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid #172940;
+  text-decoration: none;
+  color: #172940;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+// .button-grid li a:hover {
+//   background-color: #172940;
+//   color: #fff;
+// }
+
+.accordion-content .button-grid,
+.entry-content .button-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}

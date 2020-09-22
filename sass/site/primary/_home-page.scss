@@ -64,10 +64,9 @@ a.slider-button {
 }
 
 .resources-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 1rem;
   margin: 0 1.5rem;
   padding: 0;
   list-style: none;
@@ -76,6 +75,8 @@ a.slider-button {
 .resources-grid-item {
   display: flex;
   height: 130px;
+  min-width: 200px;
+  margin: 0 0 1rem 0;
   overflow: hidden;
 
   &:nth-of-type(1) {
@@ -310,6 +311,20 @@ a.slider-button {
   padding: 2rem;
 }
 
+@supports (display: grid) {
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .resources-grid-item {
+    margin: 0;
+    min-width: inherit;
+  }
+}
+
 @media screen and (min-width: $admin-baby-bear) {
   .admin-col-photo {
     padding: 3rem 0 0 0;
@@ -338,7 +353,14 @@ a.slider-button {
   }
 
   .resources-grid {
-    justify-content: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex: 0 1 200px;
+    flex-wrap: wrap;
+  }
+
+  .resources-grid-item {
+    margin: 0 1rem 1rem 0;
   }
 
   .home-content-wrapper {
@@ -351,6 +373,16 @@ a.slider-button {
     grid-template-columns: repeat(auto-fill, minmax(394px, 1fr));
     margin: 3.5rem 7rem;
   }
+
+  @supports (display: grid) {
+    .resources-grid {
+      justify-content: flex-start;
+    }
+
+    .resources-grid-item {
+      margin: 0;
+    }
+  }
 }
 
 @media screen and (min-width: $mama-bear) {
@@ -361,7 +393,7 @@ a.slider-button {
 
   .slider-wrapper {
     grid-template-areas: ". slider .";
-    min-height: 413px;
+    // min-height: 413px;
     background-size: cover;
   }
 
@@ -372,7 +404,7 @@ a.slider-button {
     border-bottom: 0;
     background-color: #fff;
     width: 39rem;
-    margin: 0 0 0 1.5rem;
+    margin: 3rem 0 3rem 1.5rem;
   }
 
   .cycle-slideshow {
@@ -409,7 +441,7 @@ a.slider-button {
 
 @media screen and (min-width: $great-grandpa-bear) {
   .slider-inner-wrapper {
-    margin: 0;
+    margin: 3rem 0;
   }
 
   .resources-grid-inner-wrapper {
@@ -424,12 +456,20 @@ a.slider-button {
 
   .resources-grid-item {
     height: 230px;
-    margin: 0;
+    min-width: 230px;
+    margin: 0 1rem 1rem 0;
     &:nth-of-type(6) {
       grid-column-start: 2;
     }
     &:nth-of-type(10) {
       grid-column-start: 4;
+    }
+  }
+
+  @supports (displaY: grid) {
+    .resources-grid-item {
+      margin: 0;
+      min-width: inherit;
     }
   }
 }

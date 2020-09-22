@@ -22,6 +22,9 @@ if (!current_user_can('administrator') && !is_admin()) {
 }
 
 
+add_editor_style();
+
+
 function wpb_mce_buttons_2($buttons) {
     array_unshift($buttons, 'styleselect');
     return $buttons;
@@ -73,7 +76,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.1' );
+	define( '_S_VERSION', '1.1.2' );
 }
 if ( ! function_exists( 'atsu_hr_setup' ) ) :
 	/**
@@ -218,16 +221,17 @@ function widget_registration($name, $id, $description, $beforeWidget, $afterWidg
  
 function multiple_widget_init(){
     widget_registration('Sidebar', 'sidebar-1', 'Widgets appearing on all pages go here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
-	widget_registration('About HR Sidebar', 'about-hr-sidebar', 'About HR widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Policies Sidebar', 'policies-sidebar', 'Policies widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Benefits Sidebar', 'benefits-sidebar', 'Benefits widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('FMLA Sidebar', 'fmla-sidebar', 'FMLA widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Forms Sidebar', 'forms-sidebar', 'Forms widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Payroll Sidebar', 'payroll-sidebar', 'Payroll widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Policies & Handbooks Sidebar', 'policies-handbooks-sidebar', 'Policies & Handbooks widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Human Resources Policies Sidebar', 'hr-policies-sidebar', 'Human Resources Policies widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Professional Development Sidebar', 'professional-development-sidebar', 'Professional Development widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Supervisors Sidebar', 'supervisors-sidebar', 'Supervisors widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('UltiPro Sidebar', 'ultipro-sidebar', 'UltiPro widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Workplace Injury Sidebar', 'workplace-injury-sidebar', 'Workplace Injury widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 }
  
 add_action('widgets_init', 'multiple_widget_init');
@@ -251,7 +255,7 @@ function atsu_hr_scripts() {
 	}
 
 	wp_deregister_script('masonry'); 
-	if ( is_page_template( 'page-content-blocks.php' ) ) {
+	if ( is_page_template( 'page-content-blocks.php' ) or is_page_template( 'page-content-blocks-no-sidebar.php') ) {
 		wp_enqueue_script( 'masonry', get_template_directory_uri() . '/js/masonry/masonry.js', array('jquery'), null, true );
 		wp_enqueue_script( 'masonry-settings', get_template_directory_uri() . '/js/masonry/masonry-settings.js', array('jquery'), null, true);
 	}

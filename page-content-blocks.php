@@ -19,20 +19,7 @@ get_header();
             <article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
                 
                 <?php get_template_part('template-parts/subpage', 'toc'); ?>
-                <div class="entry-content masonry-wrapper">
-                    
-                    <?php if (have_rows('content-blocks')):
-                        while (have_rows('content-blocks')): the_row(); ?>
-                        <div class="card">
-                            <h2 id="<?php the_sub_field('hash');?>" class="card-head"><?php the_sub_field('heading');?></h2>
-                            <div class="card-inner"><?php the_sub_field('content');?></div>
-                        </div>
-                    <?php endwhile;
-                    else :
-                    endif; ?>
-                
-                    
-                </div><!-- .entry-content -->
+                <?php get_template_part('template-parts/content', 'blocks'); ?>
 
 
                 <?php if ( get_edit_post_link() ) : ?>

@@ -1,3 +1,8 @@
+.intro-content {
+  content: "";
+  display: table;
+  clear: both;
+}
 .accordion-head {
   width: 100%;
   padding: 1rem;
@@ -32,12 +37,12 @@
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
     a {
       @include hollow-button;
       width: 100%;
-      text-align: center;
-
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       &:hover {
         @include hollow-button-hover;
       }
@@ -48,7 +53,7 @@
 .accordion-content .button-grid,
 .entry-content .button-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
   gap: 1rem;
 }
 
@@ -59,17 +64,15 @@
 .card .button-grid li a {
   margin-bottom: 1.5rem;
 }
-
-.card {
+.card-wrapper {
   width: 100%;
   margin-bottom: 1.7rem;
-  background-color: $color__light-gray;
-  border-right: 1px solid $color__gray;
-  border-bottom: 1px solid $color__gray;
+}
+.card {
+  @include card;
   h2 {
     background-color: $color__mid-gray;
     color: #000;
-    border-top: 5px solid $color__light-blue;
     margin: 0;
     padding: 1rem;
   }
@@ -80,9 +83,9 @@
 }
 
 @media screen and (min-width: $great-grandpa-bear) {
-  .card {
-    width: 45.8%;
-    margin-right: 2%;
+  .card-wrapper {
+    width: 50%;
+    padding-right: 2%;
     float: left;
   }
 }

@@ -371,15 +371,6 @@ textarea {
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  clear: both;
-}
-
 .slide h2 {
   text-transform: uppercase;
   font-size: 1.15rem;
@@ -512,6 +503,11 @@ figure {
 table {
   margin: 0 0 1.5em;
   width: 100%;
+}
+
+.tablepress-id-2 .column-1,
+.tablepress-id-4 .column-1 {
+  width: 100px;
 }
 
 /*--------------------------------------------------------------
@@ -669,7 +665,8 @@ a[href$=".pdf"]:after {
   font-family: sans-serif;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline;
+  /* to prevent icon from line breaking*/
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   content: "PDF";
@@ -688,10 +685,11 @@ a[href$=".docx"]:after {
   font-family: sans-serif;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline;
+  /* to prevent icon from line breaking*/
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  content: "DOC";
+  content: "DOCX";
 }
 
 a[href$=".xls"]:after,
@@ -708,7 +706,8 @@ a[href$=".xlsx"]:after {
   letter-spacing: 0.001em;
   line-height: 16px;
   text-decoration: none;
-  display: inline-block;
+  display: inline;
+  /* to prevent icon from line breaking*/
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   content: "XLS";
@@ -745,26 +744,32 @@ a[href$=".xlsx"]:after {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.menu-top-navigation-container {
-  display: none;
+.main-navigation.toggled ul {
+  padding: 1.5rem 3rem;
+  width: 100%;
+  background: #fff;
 }
 
-.menu-top-navigation-for-mobile-container {
+.main-navigation.toggled ul ul {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.main-navigation.toggled .menu-top-navigation-container {
   position: absolute;
   width: 100%;
   left: 0;
   background: white;
   z-index: 9999;
-  text-align: center;
   font-size: 6vw;
   margin-top: 1rem;
 }
 
-.menu-top-navigation-for-mobile-container li {
+.main-navigation.toggled .menu-top-navigation-container li {
   padding: 10px 0;
 }
 
-.main-navigation.toggled .menu-top-navigation-for-mobile-container {
+.main-navigation.toggled .menu-top-navigation-container {
   border-bottom: 2px solid #334a68;
   border-top: 2px solid #334a68;
   padding: 1rem 0;
@@ -794,8 +799,6 @@ a[href$=".xlsx"]:after {
 
 .main-navigation ul ul {
   width: 17rem;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -804,8 +807,6 @@ a[href$=".xlsx"]:after {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #fff;
-  float: left;
-  position: absolute;
   top: 100%;
   left: -999em;
   z-index: 99999;
@@ -823,7 +824,8 @@ a[href$=".xlsx"]:after {
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
   display: block;
-  left: auto;
+  left: 0;
+  /*auto before realizing it breaks in IE*/
 }
 
 .main-navigation ul ul li a {
@@ -836,7 +838,8 @@ a[href$=".xlsx"]:after {
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-  left: auto;
+  left: 0;
+  /*auto before realizing it breaks in IE*/
 }
 
 .main-navigation .sub-menu a {
@@ -849,7 +852,6 @@ a[href$=".xlsx"]:after {
 }
 
 .main-navigation a {
-  display: block;
   text-decoration: none;
 }
 
@@ -859,15 +861,30 @@ a[href$=".xlsx"]:after {
   display: block;
 }
 
+.main-navigation.toggled ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.main-navigation.toggled ul ul li a {
+  display: block;
+  border-bottom: 0px;
+}
+
 @media screen and (min-width: 560px) {
-  .menu-top-navigation-for-mobile-container {
+  .main-navigation.toggled .menu-top-navigation-container {
     width: 40%;
     left: inherit;
     right: 0;
     z-index: 9999;
     font-size: 1.5em;
   }
-  .main-navigation.toggled .menu-top-navigation-for-mobile-container {
+  .main-navigation.toggled .menu-top-navigation-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -878,21 +895,13 @@ a[href$=".xlsx"]:after {
     -webkit-box-shadow: none;
             box-shadow: none;
     width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 0;
     margin: 2.1rem 0 0 0;
   }
-  .main-navigation.toggled ul {
-    width: 40%;
-    background: #fff;
-  }
 }
 
-@media screen and (min-width: 1375px) {
-  .menu-top-navigation-for-mobile-container {
-    display: none;
-  }
+@media screen and (min-width: 930px) {
   .menu-toggle {
     display: none;
   }
@@ -903,6 +912,7 @@ a[href$=".xlsx"]:after {
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
+    font-size: inherit;
   }
   .main-navigation ul {
     display: -webkit-box;
@@ -936,6 +946,10 @@ a[href$=".xlsx"]:after {
   }
   .main-navigation ul .sub-menu li a:hover {
     background-color: #e4e4e4;
+  }
+  .main-navigation ul ul {
+    position: absolute;
+    float: left;
   }
   .main-navigation ul li.benefits:hover > ul,
   .main-navigation ul li.benefits:focus > ul {
@@ -1037,24 +1051,25 @@ a[href$=".xlsx"]:after {
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-.alignleft {
-  float: left;
-  margin-right: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-.alignright {
-  float: right;
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
-}
-
 .aligncenter {
   clear: both;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 790px) {
+  .alignleft {
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+  }
+  .alignright {
+    float: right;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1173,6 +1188,10 @@ a[href$=".xlsx"]:after {
         grid-template-columns: calc(50vw - 39rem) auto 24.75rem calc(50vw - 39rem);
         grid-template-areas: "pageheading pageheading pageheading pageheading" ". main sidebar .";
   }
+  body.page-template-page-content-blocks-no-sidebar .main-and-widgets-wrapper,
+  body.page-template-page-abouthr .main-and-widgets-wrapper {
+        grid-template-areas: "pageheading pageheading pageheading pageheading" ". main main .";
+  }
   .page-heading h1.entry-title,
   .widget-area {
     margin: 0;
@@ -1182,6 +1201,10 @@ a[href$=".xlsx"]:after {
   }
   .site-main {
     margin: 0 3rem 0 0;
+  }
+  body.page-template-page-content-blocks-no-sidebar .site-main,
+  body.page-template-page-abouthr .site-main {
+    margin: 0;
   }
 }
 
@@ -1262,14 +1285,16 @@ a.slider-button:hover {
 }
 
 .resources-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 1rem;
   margin: 0 1.5rem;
   padding: 0;
   list-style: none;
@@ -1280,6 +1305,8 @@ a.slider-button:hover {
   display: -ms-flexbox;
   display: flex;
   height: 130px;
+  min-width: 200px;
+  margin: 0 0 1rem 0;
   overflow: hidden;
 }
 
@@ -1568,6 +1595,23 @@ a.slider-button:hover {
   padding: 2rem;
 }
 
+@supports (display: grid) {
+  .resources-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1rem;
+  }
+  .resources-grid-item {
+    margin: 0;
+    min-width: inherit;
+  }
+}
+
 @media screen and (min-width: 547px) {
   .admin-col-photo {
     padding: 3rem 0 0 0;
@@ -1597,9 +1641,21 @@ a.slider-button:hover {
     grid-area: resources;
   }
   .resources-grid {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 200px;
+            flex: 0 1 200px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .resources-grid-item {
+    margin: 0 1rem 1rem 0;
   }
   .home-content-wrapper {
         grid-template-areas: ". threecols ." ". admin .";
@@ -1608,6 +1664,16 @@ a.slider-button:hover {
     -ms-grid-columns: (minmax(394px, 1fr))[auto-fill];
         grid-template-columns: repeat(auto-fill, minmax(394px, 1fr));
     margin: 3.5rem 7rem;
+  }
+  @supports (display: grid) {
+    .resources-grid {
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+    .resources-grid-item {
+      margin: 0;
+    }
   }
 }
 
@@ -1620,7 +1686,6 @@ a.slider-button:hover {
   }
   .slider-wrapper {
         grid-template-areas: ". slider .";
-    min-height: 413px;
     background-size: cover;
   }
   .slider-inner-wrapper {
@@ -1634,7 +1699,7 @@ a.slider-button:hover {
     border-bottom: 0;
     background-color: #fff;
     width: 39rem;
-    margin: 0 0 0 1.5rem;
+    margin: 3rem 0 3rem 1.5rem;
   }
   .cycle-slideshow {
     width: 97%;
@@ -1673,7 +1738,7 @@ a.slider-button:hover {
 
 @media screen and (min-width: 1375px) {
   .slider-inner-wrapper {
-    margin: 0;
+    margin: 3rem 0;
   }
   .resources-grid-inner-wrapper h2 {
     margin: 3rem 0 1.5rem 0;
@@ -1683,7 +1748,8 @@ a.slider-button:hover {
   }
   .resources-grid-item {
     height: 230px;
-    margin: 0;
+    min-width: 230px;
+    margin: 0 1rem 1rem 0;
   }
   .resources-grid-item:nth-of-type(6) {
     -ms-grid-column: 2;
@@ -1692,6 +1758,12 @@ a.slider-button:hover {
   .resources-grid-item:nth-of-type(10) {
     -ms-grid-column: 4;
         grid-column-start: 4;
+  }
+  @supports (displaY: grid) {
+    .resources-grid-item {
+      margin: 0;
+      min-width: inherit;
+    }
   }
 }
 
@@ -1764,6 +1836,12 @@ a.slider-button:hover {
   top: 6px;
 }
 
+.intro-content {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .accordion-head {
   width: 100%;
   padding: 1rem;
@@ -1806,9 +1884,6 @@ a.slider-button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .button-grid li a {
@@ -1818,7 +1893,15 @@ a.slider-button:hover {
   text-decoration: none;
   color: #172940;
   width: 100%;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .button-grid li a:hover {
@@ -1830,8 +1913,8 @@ a.slider-button:hover {
 .entry-content .button-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: (minmax(19rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
   gap: 1rem;
 }
 
@@ -1843,18 +1926,21 @@ a.slider-button:hover {
   margin-bottom: 1.5rem;
 }
 
-.card {
+.card-wrapper {
   width: 100%;
   margin-bottom: 1.7rem;
-  background-color: #fafafa;
+}
+
+.card {
   border-right: 1px solid #e4e4e4;
   border-bottom: 1px solid #e4e4e4;
+  border-top: 5px solid #3687ba;
+  background-color: #fafafa;
 }
 
 .card h2 {
   background-color: #f3f3f3;
   color: #000;
-  border-top: 5px solid #3687ba;
   margin: 0;
   padding: 1rem;
 }
@@ -1864,10 +1950,70 @@ a.slider-button:hover {
 }
 
 @media screen and (min-width: 1375px) {
-  .card {
-    width: 45.8%;
-    margin-right: 2%;
+  .card-wrapper {
+    width: 50%;
+    padding-right: 2%;
     float: left;
+  }
+}
+
+#staff {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(27rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 1.5rem;
+}
+
+.staff-person {
+  background-color: #fafafa;
+  padding: 1.5rem;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 5px solid #3687ba;
+  background-color: #fafafa;
+}
+
+.staff-person h2,
+.staff-person h3 {
+  color: #334a68;
+  margin: 0;
+  padding: 0;
+}
+
+.staff-person h3 {
+  font-weight: 400;
+}
+
+.staff-photo {
+  border: 10px solid #f3f3f3;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.staff-photo img {
+  max-width: 140px;
+}
+
+.staff-contact {
+  padding: 1.5rem 0;
+}
+
+.staff-contact i {
+  font-size: 16px;
+  padding: 0 0.5rem 0 0;
+  color: #3687ba;
+}
+
+.staff-contact p {
+  margin: 0;
+  padding: 0.2rem 0;
+}
+
+@media screen and (min-width: 700px) {
+  .staff-photo {
+    float: right;
   }
 }
 
@@ -1905,21 +2051,22 @@ a.slider-button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@media screen and (min-width: 1375px) {
+.site-branding a img {
+  height: 57px;
+  width: 323px;
+}
+
+@media screen and (min-width: 930px) {
   .site-header {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: calc(50vw - 39rem) 387px 1fr;
-        grid-template-columns: calc(50vw - 39rem) 387px 1fr;
-        grid-template-areas: ". site-branding site-nav";
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 0;
   }
   .site-branding,
@@ -1927,20 +2074,92 @@ a.slider-button:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .site-branding {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: site-branding;
-    min-height: 129px;
-    width: auto;
+    padding: 1.5rem 0;
+    width: 100%;
   }
   .main-navigation {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: site-nav;
     background-color: #172940;
     width: 100%;
+    height: 4rem;
+  }
+  @supports (display: grid) {
+    .site-header {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+          grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+          grid-template-areas: ". site-branding ." "site-nav site-nav site-nav";
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: stretch;
+          -ms-flex-align: stretch;
+              align-items: stretch;
+    }
+    .site-branding {
+      width: auto;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+      grid-area: site-branding;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+    .main-navigation {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-area: site-nav;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1375px) {
+  .site-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    padding: 0;
+  }
+  .site-branding {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    width: 29rem;
+    margin: 0 2rem 0 8rem;
+  }
+  .main-navigation {
+    height: auto;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  @supports (display: grid) {
+    .site-header {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: calc(50vw - 39rem) 387px 1fr;
+          grid-template-columns: calc(50vw - 39rem) 387px 1fr;
+          grid-template-areas: ". site-branding site-nav";
+    }
+    .site-branding {
+      margin: 0;
+    }
   }
 }
 
