@@ -5,7 +5,6 @@
 .main-navigation.toggled ul {
   padding: 1.5rem 3rem;
   width: 100%;
-  background: #fff;
 }
 
 .main-navigation.toggled ul ul {
@@ -154,7 +153,6 @@
     border: 0;
     box-shadow: none;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 0;
     margin: 2.1rem 0 0 0;
   }
@@ -162,6 +160,10 @@
 
 @media screen and (min-width: $little-papa-bear) {
   .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation ul li.mobile-search {
     display: none;
   }
 
@@ -204,6 +206,7 @@
     }
   }
 
+  /* requires that benefits class be added to WP menu */
   .main-navigation ul li.benefits:hover > ul,
   .main-navigation ul li.benefits:focus > ul {
     left: -320px;

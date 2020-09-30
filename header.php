@@ -32,11 +32,18 @@
 		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="material-icons md-menu">menu</i></button>
 
 			<?php
+
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'menu_class'	 => 'menu-desktop',
+					// 'menu_id'        => 'primary-menu',
+					// 'menu_class'	 => 'menu-desktop',
+					'items_wrap' => '<ul id="primary-menu" class="menu-desktop">%3$s <li class="mobile-search"><form role="search" method="get" id="search-form" action="' . home_url( '/' ) . '" >
+					<label class="screen-reader-text" for="s">' . __('',  'domain') . '</label>
+					 <input type="search" value="' . get_search_query() . '" name="s" id="s" placeholder="Search website" />
+					 <button type="submit" id="searchsubmit"><i class="material-icons">search</i></button>
+					 </form></li></ul>',
+
 				)
 			);
 				?>

@@ -42,12 +42,12 @@ get_header();
 				<div class="resources-grid-wrapper">
 					
 					<div class="resources-grid-inner-wrapper">
-						<h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2>
+						<!-- <h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2> -->
 						<ul class="resources-grid">
+							<li class="resources-grid-item"><h2><?php the_field('resources_heading_line_1');?> <span><?php the_field('resources_heading_line_2');?></span></h2></li>
 							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-still-healthy">Still Healthy</a></li>
 							<li class="resources-grid-item"><a href="/atsu-policies-manual/" class="item-policies">Policies</a></li>
 							<li class="resources-grid-item"><a href="/policies-handbooks/#handbooks" class="item-handbook">Handbook</a></li>
-							<li class="resources-grid-item"><a href="https://www.youtube.com/playlist?list=PLP3UDRKqVJV_qm5bFtjMsYpl5A6LIyTbW" class="item-youtube" target="_blank">Still Healthy <span>YouTube Videos</span></a></li>
 							<li class="resources-grid-item"><a href="/forms/" class="item-forms">Forms</a></li>
 							<li class="resources-grid-item "><a href="/about-hr/" class="item-about-hr">About HR</a></li>
 							<li class="resources-grid-item"><a href="/benefits/#stillhealthyresources" class="item-wellness-guides">Wellness Guides</a></li>

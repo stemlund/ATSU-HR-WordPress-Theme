@@ -5,9 +5,9 @@
 // }
 
 #staff {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .staff-person {
@@ -50,8 +50,45 @@
   }
 }
 
+@supports (display: grid) {
+  #staff {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  .staff-person {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: $mama-bear) {
+  @supports (display: grid) {
+    #staff {
+      grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    }
+  }
+}
+
 @media screen and (min-width: $mama-bear) {
   .staff-photo {
     float: right;
+  }
+}
+
+@media screen and (min-width: $big-mama-bear) {
+  #staff {
+    flex-flow: row wrap;
+  }
+
+  .staff-person {
+    flex: 0 1 41%;
+    margin: 0 2% 2% 0;
+  }
+
+  @supports (display: grid) {
+    .staff-person {
+      margin: 0;
+    }
   }
 }

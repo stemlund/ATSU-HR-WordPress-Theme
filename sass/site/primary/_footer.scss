@@ -1,5 +1,4 @@
 .site-footer {
-  display: grid;
   background-color: $color__dark-blue;
   color: #fff;
   margin: 3.5rem 0 0 0;
@@ -56,50 +55,103 @@
   }
 }
 
-@media screen and (min-width: $medium-mama-bear) {
+@supports (display: grid) {
   .site-footer {
     display: grid;
-    grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
-    grid-template-areas:
-      ". footer ."
-      "copyrightpolicies copyrightpolicies copyrightpolicies";
+  }
+}
+
+@media screen and (min-width: $medium-mama-bear) {
+  .site-footer {
   }
 
   .footer-cols {
-    grid-area: footer;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    display: flex;
+    flex-flow: row wrap;
     padding: 3.5rem 2rem;
+    box-sizing: border-box;
   }
 
   .footer-col {
-    padding: 0;
+    padding: 0 1.5rem 0 0;
     border-bottom: 0;
   }
 
+  .footer-col-contacts,
+  .footer-col-links {
+    flex: 0 1 30%;
+  }
+
   .footer-col-logo {
-    grid-column: 1 / -1;
-    padding: 0 0 1.5rem 0;
     border-bottom: 1px solid $color__mid-blue;
+    flex: 1 100%;
+    padding: 0 0 1rem 0;
+    margin: 0 0 1rem 0;
   }
 
   .footer-copyright-policies {
-    grid-area: copyrightpolicies;
     display: flex;
     justify-content: space-between;
+  }
+
+  @supports (display: grid) {
+    .site-footer {
+      display: grid;
+      grid-template-columns: calc(50vw - 39rem) 1fr calc(50vw - 39rem);
+      grid-template-areas:
+        ". footer ."
+        "copyrightpolicies copyrightpolicies copyrightpolicies";
+    }
+
+    .footer-cols {
+      grid-area: footer;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .footer-col {
+      padding: 0;
+    }
+
+    .footer-col-logo {
+      grid-column: 1 / -1;
+      padding: 0 0 1.5rem 0;
+      margin: 0;
+    }
+
+    .footer-copyright-policies {
+      grid-area: copyrightpolicies;
+    }
   }
 }
 
 @media screen and (min-width: $papa-bear) {
   .footer-cols {
-    grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
-    padding: 3.5rem 0;
+    padding: 3.5rem 1.5rem;
+    flex-flow: row nowrap;
+    @include max-width-for-IE;
   }
 
   .footer-col-logo {
-    grid-column: 1 / 2;
-    padding: 0;
+    padding: 0 1.5rem 0 0;
     border-bottom: 0;
+  }
+
+  .footer-col-logo,
+  .footer-col {
+    flex: 0 1 25%;
+  }
+
+  @supports (display: grid) {
+    .footer-cols {
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 1fr;
+      @include max-width-reset;
+    }
+
+    .footer-col-logo {
+      grid-column: 1 / 2;
+      padding: 0;
+    }
   }
 }

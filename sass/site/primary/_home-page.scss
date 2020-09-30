@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 .slider-inner-wrapper {
-  background-color: $color__mid-gray;
+  background-color: #fff;
   border-bottom: 10px solid $color__red;
 }
 
@@ -52,7 +52,7 @@ a.slider-button {
     font-weight: 400;
     font-size: 2.65rem;
     line-height: 2.4rem;
-    margin: 3rem 1.5rem 1.5rem 1.5rem;
+    margin: 0;
 
     span {
       color: $color__dark-blue;
@@ -67,9 +67,12 @@ a.slider-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 1.5rem;
   padding: 0;
   list-style: none;
+}
+
+ul.resources-grid {
+  margin: 4rem 1.5rem 0 1.5rem;
 }
 
 .resources-grid-item {
@@ -80,7 +83,7 @@ a.slider-button {
   overflow: hidden;
 
   &:nth-of-type(1) {
-    border-bottom: 10px solid $color__red;
+    height: inherit;
   }
   &:nth-of-type(2) {
     border-bottom: 10px solid $color__purple;
@@ -233,22 +236,17 @@ a.slider-button {
 }
 
 .home-content-wrapper {
-  grid-template-areas:
-    "threecols"
-    "admin";
 }
 
 .home-three-cols-wrapper {
-  grid-area: threecols;
-  display: grid;
-  gap: 1.5rem;
-  margin: 2rem 1.5rem;
+  margin: 2rem 0;
 }
 
 .home-col {
   background-color: $color__light-gray;
   border-right: 1px solid $color__gray;
   border-bottom: 1px solid $color__gray;
+  margin: 0 0 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -279,12 +277,9 @@ a.slider-button {
 
 .home-administration-block-wrapper {
   grid-area: admin;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: $color__dark-blue;
   color: #fff;
-  margin: 0 1.5rem;
+  margin: 0;
 
   h3 {
     font-size: 1.5rem;
@@ -323,33 +318,32 @@ a.slider-button {
     margin: 0;
     min-width: inherit;
   }
-}
 
-@media screen and (min-width: $admin-baby-bear) {
-  .admin-col-photo {
-    padding: 3rem 0 0 0;
+  .home-content-wrapper {
+    grid-template-areas:
+      "threecols"
+      "admin";
+  }
+
+  .home-three-cols-wrapper {
+    grid-area: threecols;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .home-col {
+    margin: 0;
   }
 }
 
 @media screen and (min-width: $big-baby-bear) {
-  .resources-grid-wrapper,
-  .home-content-wrapper {
-    display: grid;
-    grid-template-columns: $size__outer-margins 1fr $size__outer-margins;
-  }
-
   body.home .main-and-widgets-wrapper {
     display: block;
   }
   .resources-grid-wrapper {
-    grid-template-areas: ". resources .";
     background-color: #f3f3f3;
     border-top: 10px solid $color__light-blue;
     padding: 0 0 3.5rem 0;
-  }
-
-  .resources-grid-inner-wrapper {
-    grid-area: resources;
   }
 
   .resources-grid {
@@ -364,13 +358,6 @@ a.slider-button {
   }
 
   .home-content-wrapper {
-    grid-template-areas:
-      ". threecols ."
-      ". admin .";
-  }
-
-  .home-three-cols-wrapper {
-    grid-template-columns: repeat(auto-fill, minmax(394px, 1fr));
     margin: 3.5rem 7rem;
   }
 
@@ -381,6 +368,29 @@ a.slider-button {
 
     .resources-grid-item {
       margin: 0;
+    }
+
+    .resources-grid-wrapper,
+    .home-content-wrapper {
+      display: grid;
+      grid-template-columns: $size__outer-margins 1fr $size__outer-margins;
+    }
+    .resources-grid-wrapper {
+      grid-template-areas: ". resources .";
+    }
+
+    .resources-grid-inner-wrapper {
+      grid-area: resources;
+    }
+
+    .home-content-wrapper {
+      grid-template-areas:
+        ". threecols ."
+        ". admin .";
+    }
+
+    .home-three-cols-wrapper {
+      grid-template-columns: repeat(auto-fill, minmax(394px, 1fr));
     }
   }
 }
@@ -410,13 +420,35 @@ a.slider-button {
   .cycle-slideshow {
     width: 97%;
   }
+
+  .admin-col-photo {
+    padding: 3rem 0 0 0;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: $papa-bear) {
+  .resources-grid-inner-wrapper,
+  .home-content-wrapper {
+    @include max-width-for-IE;
+  }
+
+  .home-three-cols-wrapper {
+    display: flex;
+    margin: 2rem 1.5rem;
+    justify-content: center;
+  }
+
+  .home-col {
+    flex: 0 1 394px;
+    margin: 0 2rem 2rem 0;
+  }
+
   .home-administration-block-wrapper {
     display: grid;
     grid-template-columns: auto 547px;
     grid-template-areas: "admintext adminphoto";
+    margin: 0 1.5rem;
   }
 
   .admin-col-text {
@@ -429,6 +461,22 @@ a.slider-button {
 
     img {
       vertical-align: bottom;
+    }
+  }
+
+  @supports (display: grid) {
+    .resources-grid-inner-wrapper,
+    .home-content-wrapper {
+      @include max-width-reset;
+    }
+
+    .home-three-cols-wrapper {
+      display: grid;
+      margin: 3.5rem 7rem;
+    }
+
+    .home-col {
+      margin: 0;
     }
   }
 }
@@ -446,7 +494,16 @@ a.slider-button {
 
   .resources-grid-inner-wrapper {
     h2 {
-      margin: 3rem 0 1.5rem 0;
+      margin: 0;
+      font-size: 4rem;
+      line-height: 3.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      span {
+        font-size: 2.49rem;
+      }
     }
   }
 
@@ -458,10 +515,19 @@ a.slider-button {
     height: 230px;
     min-width: 230px;
     margin: 0 1rem 1rem 0;
-    &:nth-of-type(6) {
-      grid-column-start: 2;
+    &:nth-of-type(1) {
+      grid-column: 2 / 4;
+    }
+    &:nth-of-type(3) {
+      grid-column-start: 3;
+    }
+    &:nth-of-type(9) {
+      grid-column-start: 5;
     }
     &:nth-of-type(10) {
+      grid-column-start: 2;
+    }
+    &:nth-of-type(11) {
       grid-column-start: 4;
     }
   }
@@ -469,7 +535,7 @@ a.slider-button {
   @supports (displaY: grid) {
     .resources-grid-item {
       margin: 0;
-      min-width: inherit;
+      min-width: 230px;
     }
   }
 }

@@ -14,8 +14,8 @@
 
 get_header();
 ?>
+<?php get_template_part('template-parts/sub', 'heading'); ?>
 <div class="main-and-widgets-wrapper">
-	<?php get_template_part('template-parts/sub', 'heading'); ?>
 	<main id="primary" class="site-main">
 
 		<?php

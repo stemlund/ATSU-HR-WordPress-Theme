@@ -16,6 +16,23 @@ ItemWithSubMenu.forEach( function( arrow ) {
 	arrow.insertAdjacentHTML( 'beforeend', '<i class="material-icons">expand_more</i>' );
 } );
 
+//Setup function for making links open in new tab
+function openNewTab( link ) {
+	if ( link.getAttribute( 'target' ) === '_blank' ) {
+		//do nothing
+	} else {
+		link.setAttribute( 'target', '_blank' );
+	}
+}
+
+// Make PDFs open in new tab
+var pdfLink = document.querySelectorAll( 'a[href$=".pdf"]' );
+pdfLink.forEach( openNewTab, this );
+
+// Make external links open in new tab
+var externalLink = document.querySelectorAll( 'a[href^=\'https:\']:not([href*=\'' + window.location.host + '\']' );
+externalLink.forEach( openNewTab, this );
+
 //Sidebar Accordions
 //Target all but first navigation menu so that first menu in sidebar is not collapsed
 var widgetAccordionHeader = document.querySelectorAll( '.widget_nav_menu + .widget_nav_menu > .widget-title' );

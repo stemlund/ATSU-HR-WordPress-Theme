@@ -17,6 +17,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		// If on HR Policies page, adjust sidebar heading to read something different so the sidebar heading/nav make sense
 		if (is_page(644)) { ?>
 			<h2 class="sidebar-head"><a name="toc"></a>ATSU Policies at a glance</h2>
+		<?php } elseif (is_search()) { ?>
+			<h2 class="sidebar-head"><a name="toc"></a>Try a different search</h2>
 		<?php } else { ?>
 			<h2 class="sidebar-head"><a name="toc"></a><?php the_title(); ?> at a glance</h2>
 		<?php } ?>
@@ -66,11 +68,18 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		elseif (is_page(351)) {
 			dynamic_sidebar( 'workplace-injury-sidebar' );
 		}
+
+		/*Search Results */
+		elseif (is_search()) {
+			dynamic_sidebar( 'search-results-sidebar');
+		}
 		else {
 			/*Does not match any pages above so show no menus.*/
 		}
 		?>
 			
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php if (!is_search()) {
+			dynamic_sidebar( 'sidebar-1' );
+		 } ?>
 	</div>
 </aside><!-- #secondary -->

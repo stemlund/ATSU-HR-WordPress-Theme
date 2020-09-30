@@ -1,0 +1,12 @@
+.drive-item-attr a {
+  height: inherit !important;
+  display: flex !important;
+  align-content: center;
+  margin: 1rem 1rem 1rem 0 !important;
+}
+
+.drive-item-attr img {
+  margin: 0 1rem 0 0 !important;
+  width: 16px;
+  height: 16px;
+}

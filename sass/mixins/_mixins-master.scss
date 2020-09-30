@@ -52,3 +52,13 @@
   border-top: 5px solid $color__light-blue;
   background-color: $color__light-gray;
 }
+
+@mixin max-width-for-IE {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+
+@mixin max-width-reset {
+  max-width: inherit;
+  margin: 0;
+}

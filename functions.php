@@ -5,7 +5,7 @@ function atsu_hr_login_required() {
 	/* If users is not logged in and they aren't on the login page (page id of 7) */
 	if ( !is_user_logged_in() ) {
 		/* Then redirect to the login page but set a redirect for after logging in to the URL they landed on*/
-		echo '<div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;"><a href="http://hr.atsu.edu/?option=saml_user_login&mepr-unauth-page=' . get_the_ID() . '&redirect_to=' . $_SERVER["REQUEST_URI"] . '"><img style="padding: 0 2rem;" src="http://hr.atsu.edu/wp-content/themes/atsu-hr/img/hr-login-button.svg"></a></div>';
+		echo '<html><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><div style="width: 320px; margin: 0 auto; padding: 0 2rem; height: 100vh; display: flex; justify-content: center; align-items: center;"><a href="http://hr.atsu.edu/?option=saml_user_login&mepr-unauth-page=' . get_the_ID() . '&redirect_to=' . $_SERVER["REQUEST_URI"] . '"><img style="width: 320px;" src="http://hr.atsu.edu/wp-content/themes/atsu-hr/img/hr-login-button.svg"></a></div></body></html>';
 		exit;
 	}
 }
@@ -76,7 +76,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.1.2' );
+	define( '_S_VERSION', '1.1.9' );
 }
 if ( ! function_exists( 'atsu_hr_setup' ) ) :
 	/**
@@ -232,6 +232,8 @@ function multiple_widget_init(){
 	widget_registration('Supervisors Sidebar', 'supervisors-sidebar', 'Supervisors widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('UltiPro Sidebar', 'ultipro-sidebar', 'UltiPro widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
 	widget_registration('Workplace Injury Sidebar', 'workplace-injury-sidebar', 'Workplace Injury widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+	widget_registration('Search Results Sidebar', 'search-results-sidebar', 'Search Results widgets here.', '<section id="%1$s" class="widget %2$s">', '</section>', '<h2 class="widget-title">', '</h2>');
+
 }
  
 add_action('widgets_init', 'multiple_widget_init');
@@ -276,6 +278,22 @@ function atsu_hr_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'atsu_hr_scripts' );
+
+function html5_search_form( $form ) { 
+	$form = '<form role="search" method="get" id="search-form" action="' . home_url( '/' ) . '" >
+   <label class="screen-reader-text" for="s">' . __('',  'domain') . '</label>
+	<input type="search" value="' . get_search_query() . '" name="s" id="s" placeholder="Search website" />
+	<button type="submit" id="searchsubmit"><i class="material-icons">search</i></button>
+	</form>';
+	return $form;
+}
+
+add_filter( 'get_search_form', 'html5_search_form' );
+
+/**
+ * Custom Shortcodes
+ */
+require get_template_directory() . '/inc/custom-shortcodes.php';
 
 /**
  * Implement the Custom Header feature.

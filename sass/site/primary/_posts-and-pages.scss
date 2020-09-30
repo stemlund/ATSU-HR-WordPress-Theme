@@ -40,13 +40,17 @@
   margin: 0 1.5rem;
 }
 
+.widget-area {
+  margin: 1.5rem;
+}
+
 @media screen and (min-width: $big-baby-bear) {
   .page-heading {
     padding: 2.3rem 0;
-    grid-area: pageheading;
-    display: grid;
-    grid-template-columns: $size__outer-margins auto $size__outer-margins;
-    grid-template-areas: ". pageheadingh1 .";
+
+    h1.entry-title {
+      @include max-width-for-IE;
+    }
   }
 
   .subheading1,
@@ -87,64 +91,94 @@
     background-color: #f9f9f9;
   }
 
-  .page-heading h1.entry-title {
-    grid-area: pageheadingh1;
-  }
-
-  .site-main {
-    grid-area: main;
-  }
-
-  .widget-area {
-    grid-area: sidebar;
-  }
-
   body.home .site-main {
     margin: 0;
+  }
+
+  @supports (display: grid) {
+    .page-heading {
+      grid-area: pageheading;
+      display: grid;
+      grid-template-columns: $size__outer-margins auto $size__outer-margins;
+      grid-template-areas: ". pageheadingh1 .";
+
+      h1 {
+        @include max-width-reset;
+      }
+    }
+
+    .page-heading h1.entry-title {
+      grid-area: pageheadingh1;
+    }
+
+    .site-main {
+      grid-area: main;
+    }
+
+    .widget-area {
+      grid-area: sidebar;
+    }
   }
 }
 
 @media screen and (min-width: $papa-bear) {
   .main-and-widgets-wrapper {
-    display: grid;
-    grid-template-columns: $size__outer-margins auto 24.75rem $size__outer-margins;
-    grid-template-areas:
-      "pageheading pageheading pageheading pageheading"
-      ". main sidebar .";
+    display: flex;
+    @include max-width-for-IE;
+    flex-flow: row wrap;
   }
 
   body.page-template-page-content-blocks-no-sidebar .main-and-widgets-wrapper,
   body.page-template-page-abouthr .main-and-widgets-wrapper {
-    grid-template-areas:
-      "pageheading pageheading pageheading pageheading"
-      ". main main .";
   }
 
-  .page-heading h1.entry-title,
-  .widget-area {
-    margin: 0;
-  }
   .page-heading {
     margin: 0 0 3rem 0;
+    flex: 1 100%;
+
+    h1.entry-title {
+      margin: 0 auto;
+    }
   }
   .site-main {
     margin: 0 3rem 0 0;
+    flex: 1 66%;
+  }
+
+  .widget-area {
+    flex: 1 30%;
+    margin: 0;
   }
 
   body.page-template-page-content-blocks-no-sidebar .site-main,
   body.page-template-page-abouthr .site-main {
     margin: 0;
   }
-}
 
-@media screen and (min-width: $great-uncle-bear) {
-  .page-heading h1.entry-title {
-    margin: 0;
+  @supports (display: grid) {
+    .main-and-widgets-wrapper {
+      display: grid;
+      grid-template-columns: $size__outer-margins auto 24.75rem $size__outer-margins;
+      grid-template-areas: ". main sidebar .";
+      @include max-width-reset;
+    }
+
+    body.page-template-page-content-blocks-no-sidebar .main-and-widgets-wrapper,
+    body.page-template-page-abouthr .main-and-widgets-wrapper {
+      grid-template-areas: ". main main .";
+    }
   }
 }
 
 @media screen and (min-width: $great-grandpa-bear) {
   body.page-template-page-content-blocks .site-main {
     margin: 0;
+  }
+
+  .page-heading {
+    h1.entry-title {
+      width: 1248px;
+      margin: 0 auto;
+    }
   }
 }

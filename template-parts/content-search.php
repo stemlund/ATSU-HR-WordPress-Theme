@@ -8,28 +8,15 @@
  */
 
 ?>
-
+<a href="<?php the_permalink(); ?>" rel="bookmark" class="search-result-entry-link">
 <article id="post-<?php the_ID(); ?>" <?php post_class('main-content'); ?>>
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			atsu_hr_posted_on();
-			atsu_hr_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
+		<h2 class="entry-title"><?php the_title(); ?></h2>
 	</header><!-- .entry-header -->
-
-	<?php atsu_hr_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php atsu_hr_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<div class="search-url"><?php the_permalink(); ?></div>
 </article><!-- #post-<?php the_ID(); ?> -->
+</a>
